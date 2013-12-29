@@ -11,17 +11,17 @@ root {
 }
 
 body{
-    min-width: 280px;
+    min-width: 240px;
     height: 100%;
     width: 100%;
 }
 
-.mTop18{
-    margin-top: 18px;
+.mTop10{
+    margin-top: 10px;
 }
 
-.pTop18{
-    padding-top: 18px;
+.pTop10{
+    padding-top: 10px;
 }
 .white{
     color: white;

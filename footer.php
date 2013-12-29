@@ -31,9 +31,12 @@
     <script>
         $(document).ready( function (){
             $("#nav-btn").click(function (){
-                $("#nav-icn").toggleClass("glyphicon-chevron-up glyphicon-chevron-down");
+                $("#nav-icn").toggleClass("glyphicon-th glyphicon-th-large");
             });
         });
-    </script>    
+    </script>
+    <?php
+    if(!empty($FTargs)) foreach ($FTargs as $arg)   echo $arg."\n";
+    ?>
   </body>  
 </html>
