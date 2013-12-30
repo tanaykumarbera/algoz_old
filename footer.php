@@ -13,7 +13,7 @@
                         <p><a href="#">Home</a> | <a href="#">Who r we?</a> | <a href="#">Submit algo</a></p>
                         <p>All rights reserved.  © 2014</p>
                         <p>powered by <a href="http://getbootstrap.com">Bootstrap</a></p>
-                        <p><a href="http://glyphicons.com">Glyphicon</a> | <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a></p>
+                        <p><a href="http://glyphicons.com">Glyphicon</a> | <a href="http://ace.c9.io/">ace</a> | <a href="http://ckeditor.com/">ckEditor</a></p>
                     </div>
                     <div class="col-md-4">
                         <div id="social">
@@ -28,6 +28,9 @@
         </footer>
     <script src="b/js/jquery.js"></script>  
     <script src="b/js/bootstrap.min.js"></script>
+    <?php
+    if(!empty($FTargs)) foreach ($FTargs as $arg)   echo $arg."\n";
+    ?>
     <script>
         $(document).ready( function (){
             $("#nav-btn").click(function (){
@@ -35,8 +38,5 @@
             });
         });
     </script>
-    <?php
-    if(!empty($FTargs)) foreach ($FTargs as $arg)   echo $arg."\n";
-    ?>
   </body>  
 </html>
