@@ -23,6 +23,9 @@ body{
 .pTop10{
     padding-top: 10px;
 }
+.p10{
+    padding: 10px;
+}
 .white{
     color: white;
 }
@@ -59,17 +62,28 @@ header{
 .mim{
     margin-top: -100px;
     position: relative;
+}
+.blockC{
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-#blnk{
+.blnk50, .blnk120{
     width: 100%;
     position: relative;
-    height: 120px;
+}
+.blnk50{
+    height: 50px;
 }
 
+.blnk120{
+    height: 120px;
+}
+.txtC{
+    vertical-align: middle;
+    text-align: center;
+}
 #social{
     margin-top: 50px;
     margin-bottom: 20px;
@@ -113,4 +127,9 @@ header{
 }
 .mdFoot > p > a:hover{
     text-shadow: 0px 0px 1px white;
+}
+
+.note, .note  >p{
+    font-family: monospace;
+    font-weight: bold;
 }

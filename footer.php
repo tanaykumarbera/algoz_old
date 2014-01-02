@@ -1,13 +1,13 @@
 <?php
     /* Footer Section */
-?>          <div id="blnk"></div>
+?>          <div class="blnk120"></div>
             <div id="push"></div>
         </div>
         <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img class="mim" src="./resources/img/x.png"/>
+                        <img class="mim blockC" src="./resources/img/x.png"/>
                     </div>
                     <div class="col-md-4 mdFoot">
                         <p><a href="#">Home</a> | <a href="#">Who r we?</a> | <a href="#">Submit algo</a></p>
@@ -29,12 +29,13 @@
     <script src="b/js/jquery.js"></script>  
     <script src="b/js/bootstrap.min.js"></script>
     <?php
-    if(!empty($FTargs)) foreach ($FTargs as $arg)   echo $arg."\n";
+    if(!empty($FTargs)&&!empty($FTargs['script'])) echo $FTargs['script']."\n";
     ?>
     <script>
         $(document).ready( function (){
             $("#nav-btn").click(function (){
                 $("#nav-icn").toggleClass("glyphicon-th glyphicon-th-large");
+                <?php if(!empty($FTargs)&&!empty($FTargs['jReady'])) echo $FTargs['jReady']."\n"; ?>
             });
         });
     </script>
