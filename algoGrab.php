@@ -1,16 +1,17 @@
 <?php
-    require_once './starter.php';
+    //require_once './starter.php';
     
     $tag= trim($_REQUEST['tag']);
     $key= str_replace(array('/','\\','.','-','$','_','@','#','%','^','*','(',')','=','+','?','!','~','`','\'','\"',':',';'), " ", $tag);
-    
-    $q="SELECT * FROM table_name WHERE MATCH (algoName, algoTags, algoDesc) AGAINST ('$key' IN NATURAL LANGUAGE MODE)";
-    $r= mysqli_query($db, $q);
-    if(mysqli_num_rows($r)>0){
-        $arr= mysqli_fetch_array($r);
-        require_once './showAlgo.php';
-    }else{
-        header('Location: ./search.php?q='.$key);
-    }
+    $db= new mysqli('localhost', 'root', '', 'algoz');
+    if($stm= $db->prepare("SELECT id FROM algorithmstore WHERE algoTags LIKE ?")){//("SELECT id FROM algorithmstore WHERE MATCH (algoName, algoTags, algoDesc) AGAINST (?)")){
+            $Lkey= "%{$key}%";
+            $stm->bind_param('s', $Lkey);
+            $stm->execute();
+            $stm->bind_result($arr);
+            $stm->fetch();
+            require_once './showAlgo.php';
+            $stm->close();
+    }else header('Location: ./search.php?q='.$key);
     require_once './stopper.php';        
 ?>
