@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">Algorithm Name</span>
-                        <input type="text" class="form-control ckeditor" id="algoN" placeholder="Name of the Algoritm"/>
+                        <input type="text" class="form-control" id="algoN" placeholder="Name of the Algoritm"/>
                     </div>
                 </div>
                 <div class="form-group">
