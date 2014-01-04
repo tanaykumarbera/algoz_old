@@ -8,9 +8,10 @@
             .cont{ min-width: 970px !important; display: block; margin: 10px auto;}
             #sideBar{ width: 350px; float: left; position: relative; }
             #loader{ position: relative; width: 600px; float: right; margin-top: 50px;}
-            #catP{ height: 400px;}
+            #catP{ height: 350px;}
             #listPanel{ height: 500px;}
-            #algoList{ height:450px; overflow-y: scroll; overflow-x: hidden;}
+            #catP, #algoList{overflow-y: scroll; overflow-x: hidden;}
+            #algoList{ height:450px;}
             </style>
         '
     ));
@@ -57,12 +58,18 @@
                 </div>
                 <div id="loader">
                     <div class="panel panel-default">
+                        <div><p class="alert alert-info m10 txtC">Algorithm Name: Karnaugh ka beta</p></div>
                         <div id="catP" class="list-group">
+                            <p class="alert alert-warning txtC"><span class="glyphicon glyphicon-info-sign"></span> Woah! Looks like there's nothing to show! Did something went wrong?</p>
+                           
+                            
                             <span class="list-group-item"><input type="checkbox" name="cat[]" value="1" checked="checked" />&nbsp;'.$a['categoryName'].</span>
-                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="1" checked="checked" />&nbsp;'.$a['categoryName'].</span>
-                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="1" checked="checked" />&nbsp;'.$a['categoryName'].</span>
-                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="1" checked="checked" />&nbsp;'.$a['categoryName'].</span>
-
+                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="2" checked="checked" />&nbsp;'.$a['categoryName'].</span>
+                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="3" checked="checked" />&nbsp;'.$a['categoryName'].</span>
+                            <span class="list-group-item"><input type="checkbox" name="cat[]" value="4" checked="checked" />&nbsp;'.$a['categoryName'].</span>
+                            
+                             
+                             
                         </div>
                         <div class="panel-footer">
                             <div class="input-group">
@@ -70,6 +77,9 @@
                                 <div class="input-group-btn">
                                     <button type="button" id="catAdd" onclick="addCat()" class="btn btn-default"><span id="btn" class="glyphicon glyphicon-plus-sign"></span></button>
                                 </div>
+                            </div>
+                            <div class="row mTop10">
+                                <button type="button" id="catSub" onclick="subCat()" class="btn btn-default blockC"><span id="sbtn" class="glyphicon glyphicon-save"></span>&nbsp;Save Details</button>
                             </div>
                         </div>
                     </div>
@@ -96,11 +106,48 @@
                 }
                 else{
                     alert("Something went wrong! Try again");
+                    $("#btn").toggleClass("glyphicon-time glyphicon-plus-sign");
+                    $("#catAdd").removeClass("disabled");
                 }
             });
             req.fail(function(msg){
                 alert("Something went wrong! Retry.");
+                $("#btn").toggleClass("glyphicon-time glyphicon-plus-sign");
+                $("#catAdd").removeClass("disabled");
             });
+            
+        }
+        
+        function subCat(){
+            $("#catSub").addClass("disabled");
+            $("#sbtn").toggleClass("glyphicon-save glyphicon-time");
+            var upd = new Array();
+            $("input:checked").each(function() {
+               upd.push($(this).val());
+            });
+            var req=$.ajax({
+                        url: "categoryAdd.php",
+                        type: "POST",
+                        data: "updt="+upd,
+                        timeout: 10000
+                   });
+            req.done(function(msg){
+                if(msg!="error"){ alert(msg);
+                    $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
+                    $("#catSub").removeClass("disabled");
+                }
+                else{
+                    alert("Something went wrong! Try again");
+                    $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
+                    $("#catSub").removeClass("disabled");
+                }
+            });
+            req.fail(function(msg){
+                alert("Something went wrong! Retry.");
+                $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
+                $("#catSub").removeClass("disabled");
+            });
+            
         }
     </script>
 <?php
