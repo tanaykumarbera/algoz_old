@@ -36,7 +36,10 @@
                                 <li><a href="./aboutUs.php">Who r we?</a></li>
                                 <li><a href="./request.php">Make a request</a></li>
                             </ul>
-                            */?>
+                            <div class="visible-xs">
+                                <p class="alert-warning">Although it seems to work fine, some features might not be available at your device.</p>
+                            </div>
+                             */?>
                             <div class="col-sm-3 col-md-3 pull-right">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
