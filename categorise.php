@@ -32,14 +32,6 @@
                             <span>&nbsp;Select an algorithm</span>
                         </div>
                         <div id="algoList" class="list-group">
-                            <a href="#" class="list-group-item" aid="22" onclick="shw(this)">Something else here</a>
-                            <a href="#" class="list-group-item" aid="23" onclick="shw(this)">Action</a>
-                            <a href="#" class="list-group-item" aid="24" onclick="shw(this)">Another action</a>
-                            <a href="#" class="list-group-item" aid="25" onclick="shw(this)">Something else here</a>
-                            <a href="#" class="list-group-item" aid="26" onclick="shw(this)">Action</a>
-                            <a href="#" class="list-group-item" aid="27" onclick="shw(this)">Another action</a>
-                            <a href="#" class="list-group-item" aid="28" onclick="shw(this)">Something else here</a>
-                            <a href="#" class="list-group-item" aid="29" onclick="shw(this)">Action</a>
                         </div>
                     </div>
                 </div>
@@ -171,5 +163,7 @@
         }
     </script>
 <?php
-    printFooter();
+    printFooter(array(
+        'jReady'=>'lalgo();'
+    ));
 ?>

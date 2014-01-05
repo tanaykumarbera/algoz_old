@@ -35,8 +35,8 @@
         $(document).ready( function (){
             $("#nav-btn").click(function (){
                 $("#nav-icn").toggleClass("glyphicon-th glyphicon-th-large");
-                <?php if(!empty($FTargs)&&!empty($FTargs['jReady'])) echo $FTargs['jReady']."\n"; ?>
             });
+            <?php if(!empty($FTargs)&&!empty($FTargs['jReady'])) echo $FTargs['jReady']."\n"; ?>
         });
     </script>
   </body>  
