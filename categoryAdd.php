@@ -22,7 +22,6 @@
             if($stm->prepare("UPDATE algorithmstore SET listedCat=? WHERE id=?")){
                 $catU= '_'.implode('_',explode(',',$_POST['updt'])).'_';
                 $stm->bind_param('si', $catU, $id);
-                print_r($catU);
                 if(!$stm->execute())                    echo 'faillllll';;
                 if(!$stm->errno) $flag= TRUE;
             }

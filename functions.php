@@ -8,4 +8,8 @@
         include './footer.php';
         require_once './stopper.php';
     }
+    
+    function __($arg){
+        echo $arg;
+    }
 ?>

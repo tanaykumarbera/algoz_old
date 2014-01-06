@@ -14,6 +14,7 @@
                 }
                 #postPseudo,#postC,#postJ,#postP{
                     min-height: 100px;
+                    
                 }
             </style>
         '

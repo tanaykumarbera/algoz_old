@@ -9,11 +9,11 @@
         <title><?php echo $HCargs['title'];?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <link href="b/css/bootstrap.min.css" rel="stylesheet" media="screen">  
-        <link href="b/css/cStyl.css" rel="stylesheet" media="screen">  
         <!--[if lt IE 9]>  
           <script src="b/assets/js/html5shiv.js"></script>  
           <script src="b/assets/js/respond.min.js"></script>  
         <![endif]-->  
+        <link href="b/css/cStyl.css" rel="stylesheet" media="screen">
         <?php
             if(!empty($HTargs)) foreach ($HTargs as $arg)   echo $arg."\n";
         ?>

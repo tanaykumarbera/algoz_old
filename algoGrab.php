@@ -6,10 +6,10 @@
     $db= new mysqli('localhost', 'root', '', 'algoz');
     if($stm= $db->prepare("SELECT id FROM algorithmstore WHERE algoTags LIKE ?")){//("SELECT id FROM algorithmstore WHERE MATCH (algoName, algoTags, algoDesc) AGAINST (?)")){
             $Lkey= "%{$key}%";
-            $stm->bind_param('s', $Lkey);
+            $stm->bind_param('s', $Lkey); 
             $stm->execute();
-            $stm->bind_result($arr);
-            $stm->fetch();
+            $stm->bind_result($aid);
+            $stm->fetch(); 
             require_once './showAlgo.php';
             $stm->close();
     }else header('Location: ./search.php?q='.$key);

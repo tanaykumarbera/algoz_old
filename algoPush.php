@@ -19,7 +19,7 @@
         
         if(empty($name)||empty($tag)||empty($lb)||empty($tb)||empty($ub)){ echo 'invalid'; die(); }
         if($stm= $db->prepare("INSERT INTO algorithmstore (algoName, algoTags, algoDesc, algoCode, algoNote, algoL, algoT, algoU) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")){
-            $stm->bind_param('ssssssss', $name, $desc, $code, $notes, $tag, $lb, $tb, $ub);
+            $stm->bind_param('ssssssss', $name, $tag, $desc, $code, $notes, $lb, $tb, $ub);
             $stm->execute();
             $stm->close();
             $flag= TRUE;
