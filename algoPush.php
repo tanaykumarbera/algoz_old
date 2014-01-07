@@ -4,15 +4,12 @@
         require_once './starter.php';
         $name= $db->escape_string(trim($_POST['name']));
         $tag= $db->escape_string(trim($_POST['tag']));
-        $desc= $db->escape_string(trim($_POST['intro']));
-        $code= serialize(array($db->escape_string(trim($_POST['psCode'])),
-                     $db->escape_string(trim($_POST['cCode'])),
-                     $db->escape_string(trim($_POST['jCode'])),
-                     $db->escape_string(trim($_POST['pCode']))));
-        $notes= serialize(array($db->escape_string(trim($_POST['psNote'])),
-                     $db->escape_string(trim($_POST['cNote'])),
-                     $db->escape_string(trim($_POST['jNote'])),
-                     $db->escape_string(trim($_POST['pNote']))));
+        $desc= trim($_POST['intro']);
+        $code= json_encode(array(trim($_POST['psCode']), trim($_POST['cCode']), trim($_POST['jCode']), trim($_POST['pCode'])));
+        $notes= json_encode(array(trim($_POST['psNote']),trim($_POST['cNote']), trim($_POST['jNote']), trim($_POST['pNote'])));
+        if((strpos($notes,"<script")!==FALSE)||(strpos($desc,"<script")!==FALSE)||(strpos($notes,"< script")!==FALSE)||(strpos($desc,"< script")!==FALSE)){
+            die("Did you just tried Something wierd ? ~_~ * Abstraction does not means a Distraction. Your location , ip n cookie data has been logged for security issues *");
+        }
         $lb= $db->escape_string(trim($_POST['lb']));
         $tb= $db->escape_string(trim($_POST['tb']));
         $ub= $db->escape_string(trim($_POST['ub']));
