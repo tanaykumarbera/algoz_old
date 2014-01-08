@@ -14,6 +14,7 @@
           <script src="b/assets/js/respond.min.js"></script>  
         <![endif]-->  
         <link href="b/css/cStyl.css" rel="stylesheet" media="screen">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'/>
         <?php
             if(!empty($HTargs)) foreach ($HTargs as $arg)   echo $arg."\n";
         ?>

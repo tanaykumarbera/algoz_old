@@ -157,25 +157,29 @@
               pp.getSession().setMode("ace/mode/html");
               ie.getSession().setMode("ace/mode/html");
 
+function enc(stir){
+    return encodeURIComponent(stir);
+}
+
 function frmSub(){
 $("#sbtn").addClass("disabled");
 
 $("#subD").html('<div class="progress progress-striped active"><div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>');
 
-var e= "name="+$("#algoN").val()
-        +"&tag="+$("#algoT").val()
-        +"&intro="+ie.getValue()
-        +"&psCode="+ps.getValue()
-        +"&psNote="+pps.getValue()
-        +"&cCode="+c.getValue()
-        +"&cNote="+pc.getValue()
-        +"&jCode="+j.getValue()
-        +"&jNote="+pj.getValue()
-        +"&pCode="+p.getValue()
-        +"&pNote="+pp.getValue()
-        +"&lb="+$("#LB").val()
-        +"&tb="+$("#TB").val()
-        +"&ub="+$("#UB").val();
+var e= "name="+enc($("#algoN").val())
+        +"&tag="+enc($("#algoT").val())
+        +"&intro="+enc(ie.getValue())
+        +"&psCode="+enc(ps.getValue())
+        +"&psNote="+enc(pps.getValue())
+        +"&cCode="+enc(c.getValue())
+        +"&cNote="+enc(pc.getValue())
+        +"&jCode="+enc(j.getValue())
+        +"&jNote="+enc(pj.getValue())
+        +"&pCode="+enc(p.getValue())
+        +"&pNote="+enc(pp.getValue())
+        +"&lb="+enc($("#LB").val())
+        +"&tb="+enc($("#TB").val())
+        +"&ub="+enc($("#UB").val());
 
         var t=$.ajax({url:"algoPush.php",type:"POST",data:e,timeout:10000});
         t.done(function(e){if(e=="invalid"){$("#sbtn").removeClass("disabled");$("#subD").html("");alert("Looks like you left something important :(");}else{$("#frmCont").html(e)}});

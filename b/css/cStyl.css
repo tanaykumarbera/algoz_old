@@ -19,6 +19,19 @@ root {
     display: block;
 }
 
+.txt{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #666666;
+    font-size: 1.12em;
+    font-weight: 200;
+}
+.tsan{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.tmono{
+    font-family: monospace;
+}
+
 body{
     min-width: 240px;
     height: 100%;
@@ -143,9 +156,6 @@ header{
 .mdFoot > p > a:hover{
     text-shadow: 0px 0px 1px white;
 }
-.tmono{
-    font-family: monospace;
-}
 
 .note, .note  >p{
     font-family: monospace;
@@ -187,13 +197,7 @@ header{
 #codeP_img{
     background-position: -64px 0px;
 }
-#pseudoT{
-    position: absolute;
-    margin-top: 22px;
-    margin-left: 0px;
-    background: black;
-    color: white;
-    opacity: 0.6;
-    padding: 3px 10px;
-    font-family: monospace;
+
+#description{
+    margin: 50px auto;
 }
