@@ -1,7 +1,2 @@
-<?php
-$db= new mysqli('localhost', 'root', '', 'algoz');
-$q= $db->stmt_init();
-
-$q->prepare("SELECT ");
-
-?>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<div class="g-person" data-href="https://plus.google.com/102216743122328085984" data-layout="portrait" data-width="200" data-showcoverphoto="true"></div>

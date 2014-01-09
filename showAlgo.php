@@ -1,4 +1,4 @@
-<?php $aid=40;
+<?php $aid=40; $uName="Moumita Bswas"; $ugID="+TANAYKUMARBERA";//"102216743122328085984";//
 $db= new mysqli('localhost', 'root', '', 'algoz');
 $q= $db->stmt_init();
 $q->prepare("SELECT * FROM algorithmstore WHERE id= ?");
@@ -35,7 +35,8 @@ if($res->num_rows > 0){
         <div class="container">
             <div id="algo" itemscope itemtype="http://schema.org/Code">
                 <?php   // if(!empty($algo['WLink'])) echo '<meta itemprop="sameAs" content="'.$algo['WLink'].'"/>';
-                        // if(!empty($algo['GRepo'])) echo '<meta itemprop="codeRepository" content="'.$algo['GRepo'].'"/>';?>
+                        // if(!empty($algo['GRepo'])) echo '<meta itemprop="codeRepository" content="'.$algo['GRepo'].'"/>';
+                        // if(!empty($algo['sDesc'])) echo '<meta itemprop="description" content="'.$algo['sDesc'].'"/>';?>
                 <div id="title">
                     <h1 class="aNam"><span class="glyphicon glyphicon-fire"></span>&nbsp;<span itemprop="name"><?php __($algo['algoName']);?></span></h1>
                 </div>
@@ -48,14 +49,14 @@ if($res->num_rows > 0){
                         echo '<span class="label label-warning tag" title="Upper Bound"><span class="glyphicon glyphicon-time"></span>  &nbsp;O ( '.$algo['algoU'].' )</span> ';
                   ?></blockquote>
                 </div>
-                <div id="description" itemprop="description" class="txt">
+                <div id="description" itemprop="about" class="txt">
                         <?php echo $algo['algoDesc'];?>
                 </div>
                 <div id="pseudo" class="panel panel-default">
                     <div id="pseudoT" class="panel-heading ">
                         <span><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;the pseudo Code</span>
                     </div>
-                    <div id="pseudoC" class="codBlock"><?php echo htmlspecialchars($source[0]);?></div>
+                    <div id="pseudoC" class="codBlock"><pre><?php echo htmlspecialchars($source[0]);?></pre></div>
                     <div class="panel-footer tsan"><p class="text-center">If there is a problem with the source supplied, you are requested to ping us at report@algoz.org</p></div>
                 </div>
                 <div id="pPseudo" class="txt"><?php if(!empty($notes[0])) echo $notes[0];?></div>
@@ -67,7 +68,7 @@ if($res->num_rows > 0){
                             <span class="pL" itemprop="name">C</span>
                         </span>
                     </div>
-                    <div id="codeC_body" class="codBlock" itemprop="sampleType"><?php echo htmlspecialchars($source[1]);?></div>
+                    <div id="codeC_body" class="codBlock" itemprop="sampleType"><pre><?php echo htmlspecialchars($source[1]);?></pre></div>
                     <div class="panel-footer tsan"><p class="text-center">If there is a problem with the source supplied, you are requested to ping us at report@algoz.org</p></div>
                 </div>
                 <div id="pCcode" class="txt"><?php if(!empty($notes[1])) echo $notes[1];?></div>
@@ -79,7 +80,7 @@ if($res->num_rows > 0){
                             <span class="pL" itemprop="name">Java</span>
                         </span>
                     </div>
-                    <div id="codeJ_body" class="codBlock" itemprop="sampleType"><?php echo htmlspecialchars($source[2]);?></div>
+                    <div id="codeJ_body" class="codBlock" itemprop="sampleType"><pre><?php echo htmlspecialchars($source[2]);?></pre></div>
                     <div class="panel-footer tsan"><p class="text-center">If there is a problem with the source supplied, you are requested to ping us at report@algoz.org</p></div>
                 </div>
                 <div id="pJcode" class="txt"><?php if(!empty($notes[2])) echo $notes[2];?></div>
@@ -91,18 +92,33 @@ if($res->num_rows > 0){
                             <span class="pL" itemprop="name">Python</span>
                         </span>
                     </div>
-                    <div id="codeP_body" class="codBlock" itemprop="sampleType"><?php echo htmlspecialchars($source[3]);?></div>
+                    <div id="codeP_body" class="codBlock" itemprop="sampleType"><pre><?php echo htmlspecialchars($source[3]);?></pre></div>
                     <div class="panel-footer tsan"><p class="text-center">If there is a problem with the source supplied, you are requested to ping us at report@algoz.org</p></div>
                 </div>
                 <div id="pPcode" class="txt"><?php if(!empty($notes[3])) echo $notes[3];?></div>
-               
-                <div id="author">
-                    
+                <div class="blnk50"></div>
+                
+                <div id="author" class="row" itemprop="author" itemscope="http://schema.org/Person">
+                    <?php    if(!empty($uName)) echo '<meta itemprop="name" content="'.$uName.'"/>';
+                             if(!empty($ugID)) echo '<link itemprop="url" content="https://plus.google.com/'.$ugID.'"/>';
+                    ?>
+                    <div class="col-sm-6" style="min-height: 270px;">
+                        <div id="lp"></div>
+                    </div>
+                    <div id="ainfo" class="col-sm-6 tsan">
+                        <span class="label label-success">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;posted by</span>
+                        <h1><?php echo $uName;?></h1>
+                        <p>If you have any complaints or in case you want to improve this post, you are requested to ping us at report@algoz.org or contact the author.</p>
+                        <p></p>
+                    </div>
                 </div>
+                
             </div>
         </div>
-
+        <div class="blnk50"></div>
     </section>
+    
+<!--
     <script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
         var c= ace.edit("codeC_body");
@@ -119,8 +135,10 @@ if($res->num_rows > 0){
         j.setReadOnly(true);
         p.setReadOnly(true);
         ps.setReadOnly(true);
-    </script>
+    </script>-->
 <?php
-    printFooter();
+    printFooter(array(
+        'gid' => $ugID
+    ));
 }
 ?>

@@ -8,11 +8,11 @@
 
 
 @media all and (max-width: 600px) and (min-width: 401px){
-    #title h1 { font-size: 2em;}
+    h1 { font-size: 2em;}
 }
 
 @media all and (max-width: 400px){
-    #title h1 { font-size: 1.5em;}
+    h1 { font-size: 1.5em;}
 }
 
 root { 
@@ -69,8 +69,11 @@ footer, #push{
     height: 200px;
     display: block;
 }
+footer, .bdBack{
+    box-shadow: 1px 0px 10px 0px #333333;
+}
 
-footer,html{
+footer,html, .bdBack{
     background: #333333;
 }
 
@@ -88,7 +91,7 @@ header{
 }
 
 .mim{
-    margin-top: -100px;
+    margin-top: -130px !important;
     position: relative;
 }
 .blockC{
@@ -200,4 +203,45 @@ header{
 
 #description{
     margin: 50px auto;
+}
+
+#author{
+    position: relative;
+    max-width: 630px;
+    min-height: 310px;
+    margin: 0px  auto;
+}
+
+#gBadge{
+    position: relative;
+    width: 200px;
+    min-height: 290px;
+    z-index: 5 !important;
+    background: white;
+}
+#g_rb{
+    position: absolute;
+    bottom: -29px;
+    left: -50px;
+    width: 300px;
+    height: 60px;
+    z-index: 6;
+    background: url('../../resources/img/rb.png') no-repeat center;
+}
+.bdBack{
+    width: 200px;
+    z-index: -5!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+#ainfo{
+    position: relative;
+    margin: 0px auto;
+    border-left: 5px solid #ccc;
+}
+#lp{
+    height: 200px;
+    width: 200px;
+    background: url('../../resources/img/lp.png') no-repeat center;
+    margin: 0px auto;
 }

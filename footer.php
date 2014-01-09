@@ -7,7 +7,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
+                        <?php if(!empty($FTargs['gid'])){
+                        ?>
+                        <div class="bdBack">
+                            <div id="gBadge" class="mim blockC">
+                                <div class="g-person" data-href="https://plus.google.com/<?php echo $FTargs['gid'];?>" data-layout="portrait" data-width="200" data-showcoverphoto="true"></div>
+                                <div id="g_rb"></div>
+                            </div>
+                        </div>
+                        <?php
+                        }else{
+                        ?>
                         <img class="mim blockC" src="./resources/img/x.png"/>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="col-md-4 mdFoot">
                         <p><a href="#">Home</a> | <a href="#">Who r we?</a> | <a href="#">Submit algo</a></p>
@@ -39,5 +53,6 @@
             <?php if(!empty($FTargs)&&!empty($FTargs['jReady'])) echo $FTargs['jReady']."\n"; ?>
         });
     </script>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
   </body>  
 </html>
