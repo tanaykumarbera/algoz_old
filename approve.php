@@ -14,6 +14,7 @@
             #listPanel{ height: 350px;}
             #catL, #algoList{overflow-y: scroll; overflow-x: hidden;}
             #algoList{ height: 300px;}
+            #butHolder{position: fixed; bottom: 20px; right: 30px; padding: 5px 20px; width: 500px; height: 30px;}
             </style>
         '
     ));
@@ -39,8 +40,12 @@
                         </div>
                         <div id="algoList" class="list-group">
                         </div>
-                    </div>
-                    <div style="position: relative; width: 100%; height: 30px;"><input type="button" onclick="app()" value="Approve" class="btn btn-success blockC"/></div>
+                    </div>                    
+                </div>
+                <div id="butHolder" class="form-inline">
+                    <div style="width: 300px; float: left; margin-top: 5px;" class="input-group input-group-sm"><input type="text" id="lnk" class="form-control " placeholder="Enter a link for this post"/></div>
+                    <input type="button" id="bt1" data-loading-text="Requesting.." class="btn btn-success btn-xs m10 pull-right" value="Approve" onclick="app();"/>
+                    <input type="button" id="bt2"  data-loading-text="Requesting.." class="btn btn-danger btn-xs m10 pull-right" value="Reject" onclick="del();"/>
                 </div>
                 <div id="loader">
                     <iframe id="frame" src=""></iframe>
@@ -50,7 +55,7 @@
     </section>
     <script>
         function togg(){
-            if($("#sideBar").css("bottom")=="0px") $("#sideBar").animate({bottom: "-480px"},"slow");
+            if($("#sideBar").css("bottom")=="0px") $("#sideBar").animate({bottom: "-450px"},"slow");
             else $("#sideBar").animate({bottom: "0px"},"slow");
         }
         function lalgo(){
@@ -74,71 +79,70 @@
         }
         
         function shw(anc){
+            $(".active").removeClass("active");
+            $(anc).addClass("active");
             $("#frame").attr("src","./showDemo.php?aid="+$(anc).attr("aid"));
-            togg();
-        }
-        function addCat(){
-            $("#catAdd").addClass("disabled");
-            $("#btn").toggleClass("glyphicon-plus-sign glyphicon-time");
-            var req=$.ajax({
-                        url: "categoryAdd.php",
-                        type: "POST",
-                        data: "cat="+$("#cat").val(),
-                        timeout: 10000
-                   });
-            req.done(function(msg){
-                if(msg!="error"){
-                    $("#catL").append(msg);
-                    $("#cat").val("");
-                    $("#btn").toggleClass("glyphicon-time glyphicon-plus-sign");
-                    $("#catAdd").removeClass("disabled");
-                }
-                else{
-                    alert("Something went wrong! Try again");
-                    $("#btn").toggleClass("glyphicon-time glyphicon-plus-sign");
-                    $("#catAdd").removeClass("disabled");
-                }
-            });
-            req.fail(function(msg){
-                alert("Something went wrong! Retry.");
-                $("#btn").toggleClass("glyphicon-time glyphicon-plus-sign");
-                $("#catAdd").removeClass("disabled");
-            });
-            
         }
         
-        function subCat(){
-            $("#catSub").addClass("disabled");
-            $("#sbtn").toggleClass("glyphicon-save glyphicon-time");
-            var upd = new Array();
-            $("input:checked").each(function() {
-               upd.push($(this).val());
-            });
+        function app(){
+            if($("#lnk").val()==""){ alert("\nPlease enter a link for the post. use alphanumeric and _ only."); return; }
+            $("#bt1").attr("value","Requesting..");
+            $("#bt1, #bt2").addClass("disabled");
             var req=$.ajax({
-                        url: "categoryAdd.php",
+                        url: "approvePost.php",
                         type: "POST",
-                        data: "aid="+$("a.active").attr("aid")+"&updt="+upd,
+                        data: "apv="+$("a.active").attr("aid")+"&lnk="+$("#lnk").val(),
                         timeout: 10000
                    });
             req.done(function(msg){
                 if(msg!="error"){
-                    $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
-                    $("#catSub").removeClass("disabled");
+                    alert("Approved");
+                    lalgo();
+                    $("#bt1").attr("value","Approve");
+                    $("#bt1, #bt2").removeClass("disabled");
                 }
                 else{
                     alert("Something went wrong! Try again");
-                    $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
-                    $("#catSub").removeClass("disabled");
+                    $("#bt1").attr("value","Approve");
+                    $("#bt1, #bt2").removeClass("disabled");
                 }
             });
-            req.fail(function(msg){
-                alert("Something went wrong! Retry.");
-                $("#sbtn").toggleClass("glyphicon-time glyphicon-save");
-                $("#catSub").removeClass("disabled");
+            req.fail(function(){
+                alert("Cant connect! Try again");
+                $("#bt1").attr("value","Approve");
+                $("#bt1, #bt2").removeClass("disabled");
             });
-            
         }
-       
+        function del(){
+            if(confirm("You sure? It cant be reverted back.")&&($("a.active").attr("aid")!="")){
+                $("#bt2").attr("value","Requesting..");
+                $("#bt1, #bt2").addClass("disabled");
+                var req=$.ajax({
+                            url: "approvePost.php",
+                            type: "POST",
+                            data: "del="+$("a.active").attr("aid"),
+                            timeout: 10000
+                       });
+                req.done(function(msg){
+                    if(msg!="error"){
+                        alert("Deleted! :(");
+                        lalgo();
+                        $("#bt2").attr("value","Reject");
+                        $("#bt1, #bt2").removeClass("disabled");
+                    }
+                    else{
+                        alert("Something went wrong! Try again");
+                        $("#bt2").attr("value","Reject");
+                        $("#bt1, #bt2").removeClass("disabled");
+                    }
+                });
+                req.fail(function(){
+                    alert("Cant connect! Try again");
+                    $("#bt2").attr("value","Reject");
+                    $("#bt1, #bt2").removeClass("disabled");
+                });
+            }
+        }
     </script>
 <?php
     printFooter(array(

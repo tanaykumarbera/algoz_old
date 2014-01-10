@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                            <span class="input-group-addon">Wikipedia Link(for sameAs schema)</span>
+                            <span class="input-group-addon">Wikipedia Link (for sameAs schema)</span>
                             <input type="text" class="form-control" id="aLink" placeholder="Enter a link to wikipedias page describing abou the same"/>
                     </div>
                 </div>
