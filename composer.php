@@ -42,6 +42,18 @@
                             <input type="text" class="form-control" id="algoT" placeholder="Please separate Tags by a semicolon( ; )"/>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon">Wikipedia Link(for sameAs schema)</span>
+                            <input type="text" class="form-control" id="aLink" placeholder="Enter a link to wikipedias page describing abou the same"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon">A short Description</span>
+                            <input type="text" class="form-control" id="aDesc" placeholder="A short description (max 30 words)"/>
+                    </div>
+                </div>
                 <div class="form-group well">
                             <label for="introEditor">Contextual part</label>
                             <div id="introEditor"><?php echo "\n\n\n\n\n&lt;!-- provide a brief introduction --&gt;\n\n\n\n\n";?></div>
@@ -168,6 +180,8 @@ $("#subD").html('<div class="progress progress-striped active"><div class="progr
 
 var e= "name="+enc($("#algoN").val())
         +"&tag="+enc($("#algoT").val())
+        +"&link="+enc($("#aLink").val())
+        +"&desc="+enc($("#aDesc").val())
         +"&intro="+enc(ie.getValue())
         +"&psCode="+enc(ps.getValue())
         +"&psNote="+enc(pps.getValue())

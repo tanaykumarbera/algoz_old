@@ -1,4 +1,6 @@
-<?php $aid=40; $uName="Moumita Bswas"; $ugID="+TANAYKUMARBERA";//"102216743122328085984";//
+<?php
+
+$aid= $_GET['aid'];
 $db= new mysqli('localhost', 'root', '', 'algoz');
 $q= $db->stmt_init();
 $q->prepare("SELECT * FROM algorithmstore WHERE id= ?");

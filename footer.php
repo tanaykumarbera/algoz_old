@@ -3,6 +3,10 @@
 ?>          <div class="blnk120"></div>
             <div id="push"></div>
         </div>
+        <?php
+        if(isset($FTargs['dispFooter'])&&$FTargs['dispFooter']=='0'){
+        }else{
+        ?>
         <footer>
             <div class="container">
                 <div class="row">
@@ -40,6 +44,9 @@
                 </div>
             </div>
         </footer>
+    <?php
+    }
+    ?>
     <script src="b/js/jquery.js"></script>  
     <script src="b/js/bootstrap.min.js"></script>
     <?php

@@ -1,2 +1,11 @@
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-<div class="g-person" data-href="https://plus.google.com/102216743122328085984" data-layout="portrait" data-width="200" data-showcoverphoto="true"></div>
+<?php
+$str= "Helllo there what\n d funckf\th aue u doing\n here.. m I ckeafn \n sjek \  n \ n on thar???\n";
+$c=0;
+$i=strpos($str, "\n");
+while($i!==FALSE){
+    $c++;
+    $i=strpos($str, "\n",$i);
+}
+echo $c;
+
+?>

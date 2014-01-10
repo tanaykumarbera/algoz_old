@@ -21,6 +21,10 @@
     </head>
     <body>
         <div id="wrapper">
+        <?php
+        if(isset($HCargs['dispHeader'])&&$HCargs['dispHeader']=='0'){
+        }else{
+        ?>  
             <header>
                 <hgroup>
                     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -56,5 +60,6 @@
                     </nav>
                 </hgroup>
             </header>
-        
-     <!-- header ends -->
+        <?php
+        }
+        ?>
