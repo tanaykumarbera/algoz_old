@@ -9,10 +9,12 @@
 
 @media all and (max-width: 600px) and (min-width: 401px){
     h1 { font-size: 2em;}
+    h2 { font-size: 1.8em;}
 }
 
 @media all and (max-width: 400px){
     h1 { font-size: 1.5em;}
+    h2 { font-size: 1.4em;}
 }
 
 root { 
@@ -207,7 +209,7 @@ header{
 
 #author{
     position: relative;
-    max-width: 630px;
+    max-width: 680px;
     min-height: 310px;
     margin: 0px  auto;
 }
@@ -244,4 +246,12 @@ header{
     width: 200px;
     background: url('../../resources/img/lp.png') no-repeat center;
     margin: 0px auto;
+}
+
+.order{
+    text-align: center;
+}
+.o_odr{
+    font-size: 1em;
+   font-weight: 100;
 }

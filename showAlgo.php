@@ -1,7 +1,7 @@
-<?php $aid=40; $uName="Moumita Bswas"; $ugID="+TANAYKUMARBERA";//"102216743122328085984";//
+<?php $aid=5;
 $db= new mysqli('localhost', 'root', '', 'algoz');
 $q= $db->stmt_init();
-$q->prepare("SELECT * FROM algorithmstore WHERE id= ?");
+$q->prepare("SELECT * FROM livestore WHERE id= ?");
 $q->bind_param('i', $aid);
 $q->execute();
 $res= $q->get_result();
@@ -29,6 +29,7 @@ if($res->num_rows > 0){
     }
     
     $q->close();
+    
     require_once './functions.php';
     
     $source= array(); $notes=array();
@@ -69,6 +70,28 @@ if($res->num_rows > 0){
                     <div class="panel-footer tsan"><p class="text-center">If there is a problem with the source supplied, you are requested to ping us at report@algoz.org</p></div>
                 </div>
                 <div id="pPseudo" class="txt"><?php if(!empty($notes[0])) echo $notes[0];?></div>
+                <div class="blnk50"></div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="alert alert-success order m10">
+                            <h4><span class="glyphicon glyphicon-fire"></span> Lower Bound </h4>
+                            <span class="label label-success o_odr">&nbsp;&Omega; (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="alert alert-info order m10">
+                            <h4><span class="glyphicon glyphicon-fire"></span> Tight Bound</h4>
+                            <span class="label label-info o_odr">&nbsp;&Theta; (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="alert alert-danger order m10">
+                            <h4><span class="glyphicon glyphicon-fire"></span> Upper Bound</h4>
+                            <span class="label label-danger o_odr">&nbsp;O (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blnk50"></div>
                 <div id="codeC" class="panel panel-primary mTop50">
                     <div class="panel-heading">
                         <span itemprop="programmingLanguage" itemscope itemtype="http://schema.org/Thing">
@@ -116,7 +139,7 @@ if($res->num_rows > 0){
                     </div>
                     <div id="ainfo" class="col-sm-6 tsan">
                         <span class="label label-success">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;posted by</span>
-                        <h1><?php echo $uName;?></h1>
+                        <h2><?php echo $uName;?></h2>
                         <p>If you have any complaints or in case you want to improve this post, you are requested to ping us at report@algoz.org or contact the author.</p>
                         <p></p>
                     </div>
