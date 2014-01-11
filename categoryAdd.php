@@ -1,5 +1,7 @@
 <?php
-    $flag= FALSE;    //sleep(3);
+    include_once './aOdNmLiYn.php';
+    
+    $flag= FALSE;
     if(!empty($_POST)){
         require './starter.php';
         $name= $db->escape_string(trim($_POST['cat']));

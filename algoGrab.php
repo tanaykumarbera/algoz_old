@@ -1,5 +1,5 @@
 <?php
-    //require_once './starter.php';
+    include_once './aOdNmLiYn.php';
     
     $tag= trim($_REQUEST['tag']);
     $key= str_replace(array('/','\\','.','-','$','_','@','#','%','^','*','(',')','=','+','?','!','~','`','\'','\"',':',';'), " ", $tag);

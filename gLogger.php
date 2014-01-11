@@ -2,18 +2,32 @@
 session_start();
 $login= FALSE;
 
-if(!empty($_SESSION['rdr'])) $rdr_url= $_SESSION['rdr'];
+if(!empty($_REQUEST['rdr'])) $rdr_url= urldecode($_REQUEST['rdr']);
 else $rdr_url= 'home.php';
-    
-if(isset($_REQUEST['logout'])){
-    unset($_SESSION['uid']);
-    setcookie('uID', "", time()-86400);
-    header('Location: http://'.$_SERVER['HTTP_HOST']);
+
+if(!empty($_REQUEST['logout'])){
+    session_destroy();
+    setcookie('uID', '', time()-86400);
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Log out | AlgoZ.org</title>
+    </head>
+    <body>
+        Logged out.. please wait while we redirect..
+    <script>
+        setTimeout(function(){window.location.replace('<?php echo $rdr_url;?>?logged')}, 2000);
+    </script>
+    </body>
+</html>
+<?php
+die();
 }
 
 if($_COOKIE['uID']!=''){
     $_SESSION['uid']=$_COOKIE['uID'];
-    header('Location: '.$rdr_url.'?uid='.$_SESSION['uid']);
+    header('Location: '.$rdr_url);
 }
 
 
@@ -31,7 +45,9 @@ $plus = new Google_PlusService($client);
 if (isset($_GET['code'])){
     $client->authenticate($_GET['code']);
     $_SESSION['access_token'] = $client->getAccessToken();
-    header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+    $rdr_url= $_SESSION['redir'];
+    unset($_SESSION['redir']);
+    header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?rdr='.urlencode($rdr_url));
 }
 
 if (!empty($_SESSION['access_token'])){
@@ -49,13 +65,15 @@ if($client->getAccessToken()){
     
     $db= new mysqli('localhost', 'root', '', 'algoZ');
     $q= $db->stmt_init();
-    $q->prepare("SELECT id FROM userdata WHERE gpID LIKE ?");
+    $q->prepare("SELECT id, utype FROM userdata WHERE gpID LIKE ?");
     $q->bind_param('s', $gID);
     if($q->execute()){
         $res= $q->get_result();
         if($res->num_rows>0){
             $a=$res->fetch_array(MYSQLI_ASSOC);
             $_SESSION['uid']= $a['id'];
+            if($a['utype']=='29') $_SESSION['AoDnMlIyN']=1;
+            else  $_SESSION['AoDnMlIyN']=0;
             setcookie('uID', $a['id'], time()+ 86400*30);
             $login= TRUE;
             $q->prepare("UPDATE userdata SET gpName= ?, gpGender= ?, gpImage= ?, lastGused =? WHERE id=?");
@@ -82,6 +100,7 @@ if($client->getAccessToken()){
 }else{
     $authUrl = $client->createAuthUrl();
     $login= FALSE;    
+    $_SESSION['redir']=$rdr_url;
 }
 ?>
 

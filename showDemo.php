@@ -1,4 +1,5 @@
 <?php
+include_once './secureMe.php';
 
 $aid= $_GET['aid'];
 $db= new mysqli('localhost', 'root', '', 'algoz');

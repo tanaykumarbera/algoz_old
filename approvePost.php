@@ -1,4 +1,6 @@
 <?php
+    include_once './aOdNmLiYn.php';
+    
     $f=FALSE;
     if(!empty($_POST)){
         if(!empty($_POST['apv'])&&(!empty($_POST['lnk']))){

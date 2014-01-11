@@ -1,4 +1,6 @@
-<?php 
+<?php
+    include_once './secureMe.php';
+
     $flag= FALSE;
     function trim_note($note_str){
         $t_str= trim($note_str);

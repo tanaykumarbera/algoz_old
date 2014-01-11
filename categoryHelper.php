@@ -1,4 +1,6 @@
 <?php
+    include_once './aOdNmLiYn.php';
+    
     $flag= FALSE;
     
     if(!empty($_POST)){

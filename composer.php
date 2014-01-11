@@ -1,4 +1,6 @@
 <?php
+    include_once './secureMe.php';
+
     require_once './functions.php';
     printHeader(array(
         'title' => "Compose | Algorithms"

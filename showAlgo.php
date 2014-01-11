@@ -75,19 +75,19 @@ if($res->num_rows > 0){
                     <div class="col-sm-4">
                         <div class="alert alert-success order m10">
                             <h4><span class="glyphicon glyphicon-fire"></span> Lower Bound </h4>
-                            <span class="label label-success o_odr">&nbsp;&Omega; (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                            <span class="label label-success o_odr">&nbsp;&Omega; (&nbsp;<?php echo $algo['algoL'];?>&nbsp;)&nbsp;</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="alert alert-info order m10">
                             <h4><span class="glyphicon glyphicon-fire"></span> Tight Bound</h4>
-                            <span class="label label-info o_odr">&nbsp;&Theta; (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                            <span class="label label-info o_odr">&nbsp;&Theta; (&nbsp;<?php echo $algo['algoT'];?>&nbsp;)&nbsp;</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="alert alert-danger order m10">
                             <h4><span class="glyphicon glyphicon-fire"></span> Upper Bound</h4>
-                            <span class="label label-danger o_odr">&nbsp;O (&nbsp;n<sup>2</sup>&nbsp;)&nbsp;</span>
+                            <span class="label label-danger o_odr">&nbsp;O (&nbsp;<?php echo $algo['algoU'];?>&nbsp;)&nbsp;</span>
                         </div>
                     </div>
                 </div>

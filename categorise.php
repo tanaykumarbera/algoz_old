@@ -1,4 +1,6 @@
 <?php
+    include_once './aOdNmLiYn.php';
+
     require_once './functions.php';
     printHeader(array(
         'title' => "Categorise | Algorithms"
