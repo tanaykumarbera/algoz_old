@@ -27,6 +27,14 @@ root {
     font-size: 1.12em;
     font-weight: 200;
 }
+.aNam{
+    color: black;
+    opacity: 0.8;
+}
+.aNam:hover{
+    opacity: 1;
+}
+
 .tsan{
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -166,12 +174,12 @@ header{
     font-family: monospace;
     font-weight: bold;
 }
-#tags blockquote{
+.tags{
     margin-left: 15px;
     line-height: 25px;
     vertical-align: middle;
 }
-#tags blockquote a{
+a.tdN{
     text-decoration: none !important;
 }
 .tag{

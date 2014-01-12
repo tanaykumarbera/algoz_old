@@ -1,3 +1,3 @@
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9_-]+)$ algoGrab.php?tag=$1
-RewriteRule ^([a-zA-Z0-9_-]+)/$ algoGrab.php?tag=$1
+RewriteRule ^([a-zA-Z0-9\(\)_-]+)$ algoGrab.php?tag=$1
+RewriteRule ^([a-zA-Z0-9\(\)_-]+)/$ algoGrab.php?tag=$1
