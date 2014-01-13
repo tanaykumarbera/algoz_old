@@ -1,18 +1,17 @@
 <?php
 require_once './functions.php';
-
+define("HOST", "http://{$_SERVER['HTTP_HOST']}/algoFreak");
 printHeader(array(
-    'title'=> trim($cat['categoryName']).' | AlgoZ'
+    'title'=> $titl.' | AlgoZ'
 ));
 ?>
 <section>
     <div class="container">
-        <div class="blnk50"></div>
         <div>
             <ol class="breadcrumb">
                 <li>Home</li>
-                <li>Categories</li>
-                <li class="active"><?php echo trim($cat['categoryName']);?></li>
+                <li><?php echo $bdcm;?></li>
+                <li class="active"><?php echo $titl;?></li>
             </ol>
         </div>
         
@@ -33,7 +32,7 @@ while($algo= $wVar->fetch_array(MYSQLI_ASSOC)){
     }
 ?>
         <div id="algo" class="panel panel-info" itemscope itemtype="http://schema.org/Code">
-            <a class="tdN" href="#">
+            <a class="tdN" href="<?php echo HOST.'/'.$algo['aLink'];?>">
                 <div class="panel-body">
                     <?php   if(!empty($algo['WLink'])) echo '<meta itemprop="sameAs" content="'.$algo['WLink'].'"/>'.PHP_EOL;
                             if(!empty($GRepo)) echo '<meta itemprop="codeRepository" content="'.$GRepo.'"/>'.PHP_EOL;

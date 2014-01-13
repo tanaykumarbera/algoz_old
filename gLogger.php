@@ -115,11 +115,11 @@ if(!$login){
         <title>Handshaking | AlgoZ.org</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <style>
-            @media all and (min-width: 601px){h1 { font-size: 10em;}#blnk{ margin-top: 5%;}}
-            @media all and (max-width: 600px) and (min-width: 401px){h1 { font-size: 3em;}#blnk{ margin-top: 10%;}}
-            @media all and (max-width: 400px){h1 { font-size: 3em;}#blnk{ margin-top: 10%;}}
+            @media all and (min-width: 601px){h1 { font-size: 10em;}.blnk{ margin-top: 5%;}}
+            @media all and (max-width: 600px) and (min-width: 401px){h1 { font-size: 3em;}.blnk{ margin-top: 10%;}}
+            @media all and (max-width: 400px){h1 { font-size: 3em;}.blnk{ margin-top: 10%;}}
             body{ width: 100%; height: 100%; overflow: hidden; }
-            #blnk{ position: relative; width: 100%;}
+            .blnk{ position: relative; width: 100%;}
             #wrapper {margin: 10px;}
             .txtC{ text-align: center; }
             .blockC{display: block; margin-left: auto; margin-right: auto; }
@@ -130,12 +130,14 @@ if(!$login){
     </head>
     <body>
         <div id="wrapper" class="blockC">
-            <div id="blnk"></div>
+            <div class="blnk"></div>
             <div class="jSrw txtC"><h1>:(</h1></div>
             <div id="pD" class="blockC txtC">
                 <p>Well looks like you are new here. Or you purposely ate my cookie to keep up the shelf clean :/</p>
                 <div id="lbtn" class="blockC"><a href="<?php echo $authUrl;?>"><img src="resources/icons/gl.png" class="blockC img-responsive" height="66" width="300" alt="Loggin with Google+"/></a></div>
             </div>
+            <div class="blnk"></div>
+            <div><img class="blockC" src="./resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
         </div>
     </body>
 </html>
@@ -149,11 +151,11 @@ if(!$login){
         <title>Aouch :/ | AlgoZ.org</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
         <style>
-            @media all and (min-width: 601px){h1 { font-size: 10em;}#blnk{ margin-top: 5%;}}
-            @media all and (max-width: 600px) and (min-width: 401px){h1 { font-size: 3em;}#blnk{ margin-top: 10%;}}
-            @media all and (max-width: 400px){h1 { font-size: 3em;}#blnk{ margin-top: 10%;}}
+            @media all and (min-width: 601px){h1 { font-size: 10em;} .blnk{ margin-top: 5%;}}
+            @media all and (max-width: 600px) and (min-width: 401px){h1 { font-size: 3em;} .blnk{ margin-top: 10%;}}
+            @media all and (max-width: 400px){h1 { font-size: 3em;} .blnk{ margin-top: 10%;}}
             body{ width: 100%; height: 100%; overflow: hidden; }
-            #blnk{ position: relative; width: 100%;}
+            .blnk{ position: relative; width: 100%;}
             #wrapper {margin: 10px;}
             .txtC{ text-align: center; }
             .blockC{display: block; margin-left: auto; margin-right: auto; }
@@ -163,11 +165,13 @@ if(!$login){
     </head>
     <body>
         <div id="wrapper" class="blockC">
-            <div id="blnk"></div>
+            <div class="blnk"></div>
             <div class="jSrw txtC"><h1>:(</h1></div>
             <div id="pD" class="blockC txtC">
                 <p>You Shouldn't be here.. Looks like something terrible ig soin . .# 2 hapin</p>
             </div>
+            <div class="blnk"></div>
+            <div><img class="blockC" src="./resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
         </div>
     </body>
 </html>

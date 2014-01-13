@@ -27,7 +27,7 @@
         ?>  
             <header>
                 <hgroup>
-                    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                         <div class="navbar-header">
                             <button type="button" id="nav-btn" class="navbar-toggle btn-lg mTop10" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                                 <i id="nav-icn" class="glyphicon glyphicon-th white fS1"></i>
@@ -60,6 +60,7 @@
                     </nav>
                 </hgroup>
             </header>
+            <div class="blnk120"></div>
         <?php
         }
         ?>

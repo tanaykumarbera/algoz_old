@@ -20,6 +20,8 @@
                     $cat= $res->fetch_array(MYSQLI_ASSOC);
                     $q->prepare("SELECT id, algoName, algoTags, aLink, WLink, sDesc, algoL, algoT, algoU, listedCat FROM livestore WHERE listedCat LIKE ?");
                     $rty= "%_".$cat['sr']."_%";
+                    $titl= $cat['categoryName'];
+                    $bdcm= "categories";
                     $q->bind_param('s', $rty);
                     if($q->execute()){
                         $wVar= $q->get_result();
@@ -27,7 +29,20 @@
                         $done= TRUE;
                     }
                 }else{
-                    header('Location: search.php?key='.$_REQUEST['tag']);
+                    $q->prepare("SELECT id, algoName, algoTags, aLink, WLink, sDesc, algoL, algoT, algoU, listedCat FROM livestore WHERE algoTags LIKE ?");
+                    $ftg="%".$key."%";
+                    $q->bind_param('s', $ftg);
+                    if($q->execute()){
+                        $wVar=$q->get_result();
+                        if($wVar->num_rows >0){
+                            $titl= str_replace("%", " ", $key);
+                            $bdcm= "tags";
+                            include_once 'listAlgo.php';
+                            $done= TRUE;
+                        }else{
+                            header('Location: search.php?key='.$_REQUEST['tag']);
+                        }
+                    }
                 }
             }
         }
