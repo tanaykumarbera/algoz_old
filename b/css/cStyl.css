@@ -67,7 +67,19 @@ body{
 .white{
     color: white;
 }
-
+.white:hover{
+    color: white !important;
+}
+.pbH{
+    color: #666666;
+    
+}
+.pbH:hover{
+    color: black !important;
+}
+.pbk{
+    background: #efefef;
+}
 .fS1{
     font-size: 1em;
 }
@@ -262,4 +274,8 @@ a.tdN{
 .o_odr{
     font-size: 1em;
    font-weight: 100;
+}
+
+.shAH{
+    
 }

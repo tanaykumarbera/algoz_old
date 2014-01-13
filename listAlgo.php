@@ -9,8 +9,8 @@ printHeader(array(
     <div class="container">
         <div>
             <ol class="breadcrumb">
-                <li>Home</li>
-                <li><?php echo $bdcm;?></li>
+                <li><a href="browseAll.php?filter=algorithm">Home</a></li>
+                <li><a href="browseAll.php?filter=<?php echo $bdlnk;?>"><?php echo $bdcm;?></a></li>
                 <li class="active"><?php echo $titl;?></li>
             </ol>
         </div>

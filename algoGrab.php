@@ -22,6 +22,7 @@
                     $rty= "%_".$cat['sr']."_%";
                     $titl= $cat['categoryName'];
                     $bdcm= "categories";
+                    $bdlnk="category";
                     $q->bind_param('s', $rty);
                     if($q->execute()){
                         $wVar= $q->get_result();
@@ -37,6 +38,7 @@
                         if($wVar->num_rows >0){
                             $titl= str_replace("%", " ", $key);
                             $bdcm= "tags";
+                            $bdlnk="tag";
                             include_once 'listAlgo.php';
                             $done= TRUE;
                         }else{
