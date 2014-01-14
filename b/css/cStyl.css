@@ -7,15 +7,7 @@
 */
 
 
-@media all and (max-width: 600px) and (min-width: 401px){
-    h1 { font-size: 2em;}
-    h2 { font-size: 1.8em;}
-}
 
-@media all and (max-width: 400px){
-    h1 { font-size: 1.5em;}
-    h2 { font-size: 1.4em;}
-}
 
 root { 
     display: block;
@@ -276,6 +268,43 @@ a.tdN{
    font-weight: 100;
 }
 
-.shAH{
-    
+.hSrch{
+    position: relative;
+    max-width: 500px;
+    bottom: -85px;
+}
+
+@media all and (max-width: 600px) and (min-width: 401px){
+    h1 { font-size: 2em;}
+    h2 { font-size: 1.8em;}
+    .hSrch { bottom: -65px;}
+}
+
+@media all and (max-width: 400px){
+    h1 { font-size: 1.5em;}
+    h2 { font-size: 1.4em;}
+    .hSrch { bottom: -65px;}
+}
+.z0{
+    z-index: 0 !important; 
+}
+
+.z1{
+    z-index: 1 !important; 
+}
+.z2{
+    z-index: 2 !important; 
+}
+.z3{
+    z-index: 3 !important; 
+}
+.z4{
+    z-index: 4 !important;
+}
+.z5{
+    z-index: 5 !important; 
+}
+
+#heading{
+    text-align: center;
 }

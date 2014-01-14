@@ -15,6 +15,11 @@ printHeader(array(
 ?>
         <section>
             <div class="container">
+                <div>
+                    <ol class="breadcrumb">
+                        <li class="active"><span class="glyphicon glyphicon-home"></span> Home</li>
+                    </ol>
+                </div>
                 <div class="row">
                     <div class="btn-group m10 pull-right" data-toggle="buttons">
                         <label class="btn btn-default <?php if($filter=="algorithm") echo 'active';?>" onclick="ldList(1);"><input type="radio" name="options" id="option1"/><span class="glyphicon glyphicon-fire"></span>&nbsp;Algorithms</label>
@@ -25,7 +30,7 @@ printHeader(array(
                 <div class="blnk50"></div>
                 <div class="panel-group" id="accordion">
                 </div>
-                
+                <div class="blnk50"></div>
             </div>
         </section>
 <script>

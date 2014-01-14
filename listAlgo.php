@@ -9,7 +9,7 @@ printHeader(array(
     <div class="container">
         <div>
             <ol class="breadcrumb">
-                <li><a href="browseAll.php?filter=algorithm">Home</a></li>
+                <li><a href="browseAll.php?filter=algorithm"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li><a href="browseAll.php?filter=<?php echo $bdlnk;?>"><?php echo $bdcm;?></a></li>
                 <li class="active"><?php echo $titl;?></li>
             </ol>
@@ -57,7 +57,8 @@ while($algo= $wVar->fetch_array(MYSQLI_ASSOC)){
         
 <?php
 }
-?>    
+?>   
+        <div class="blnk50"></div>
     </div>
 </section>
 
