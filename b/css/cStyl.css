@@ -268,23 +268,6 @@ a.tdN{
    font-weight: 100;
 }
 
-.hSrch{
-    position: relative;
-    max-width: 500px;
-    bottom: -85px;
-}
-
-@media all and (max-width: 600px) and (min-width: 401px){
-    h1 { font-size: 2em;}
-    h2 { font-size: 1.8em;}
-    .hSrch { bottom: -65px;}
-}
-
-@media all and (max-width: 400px){
-    h1 { font-size: 1.5em;}
-    h2 { font-size: 1.4em;}
-    .hSrch { bottom: -65px;}
-}
 .z0{
     z-index: 0 !important; 
 }
@@ -305,6 +288,86 @@ a.tdN{
     z-index: 5 !important; 
 }
 
+
+.wL{
+    position: absolute;
+    width: 100%;
+    min-height: 150px;
+    height: 100%;
+    display: block;
+    background: url('../../resources/icons/ldL.gif') no-repeat center top white;
+    opacity: 0.8;
+    z-index: 10 !important;
+    top: 0px;
+    visibility: hidden;
+}
+.bR{
+    position: relative;
+    display: block;
+    padding: 0px 5px;
+}
+
 #heading{
     text-align: center;
+}
+
+.hSrch{
+    position: relative;
+    max-width: 500px;
+    bottom: -85px;
+}
+
+#authTab{
+    min-width: 80px;
+    min-height: 25px;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background: black;
+    opacity: 0.3;
+    border-radius: 15px;
+}
+#authTab:hover{
+    opacity: 0.8;
+}
+#authGp{
+    height: 25px;
+    width: 30px;
+    margin-left: 28px;
+    background: url('../../resources/icons/gw.png') center no-repeat;
+}
+#lgbtn{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+#authImg{
+    position: absolute;
+    margin: -15px -20px;
+    border-radius: 50%;
+    background: gray;
+    height: 50px;
+    width: 50px;
+}
+#adtab{
+    position: absolute;
+    min-width: 100px;
+    padding: 0px 20px;
+    text-align: center;
+    border-radius: 15px;
+    left: -200px;
+    height: 25px;
+    background: red;
+    top: 0px;
+}
+@media all and (max-width: 600px) and (min-width: 401px){
+    h1 { font-size: 2em;}
+    h2 { font-size: 1.8em;}
+    .hSrch { bottom: -65px;}
+}
+
+@media all and (max-width: 400px){
+    h1 { font-size: 1.5em;}
+    h2 { font-size: 1.4em;}
+    .hSrch { bottom: -65px;}
 }

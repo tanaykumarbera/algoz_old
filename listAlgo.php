@@ -64,7 +64,8 @@ while($algo= $wVar->fetch_array(MYSQLI_ASSOC)){
 
 <?php
 printFooter(array(
-    'gid' => $ugID
+    'gid' => $ugID,
+    'uT' => '1'
 ));
 
 

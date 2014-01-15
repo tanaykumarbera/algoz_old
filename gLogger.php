@@ -3,7 +3,7 @@ session_start();
 $login= FALSE;
 
 if(!empty($_REQUEST['rdr'])) $rdr_url= urldecode($_REQUEST['rdr']);
-else $rdr_url= 'home.php';
+else $rdr_url= './';
 
 if(!empty($_REQUEST['logout'])){
     session_destroy();
@@ -17,7 +17,7 @@ if(!empty($_REQUEST['logout'])){
     <body>
         Logged out.. please wait while we redirect..
     <script>
-        setTimeout(function(){window.location.replace('<?php echo $rdr_url;?>?logged')}, 2000);
+        setTimeout(function(){window.location.replace('<?php echo $rdr_url;?>?loggedOut')}, 2000);
     </script>
     </body>
 </html>
@@ -25,8 +25,16 @@ if(!empty($_REQUEST['logout'])){
 die();
 }
 
-if($_COOKIE['uID']!=''){
+if(isset($_COOKIE['uID'])&&$_COOKIE['uID']!=''){
     $_SESSION['uid']=$_COOKIE['uID'];
+    $db= new mysqli('localhost', 'root', '', 'algoZ');
+    $q= $db->stmt_init();
+    $q->prepare("SELECT gpName, gpImage, utype FROM userdata WHERE id LIKE ?");
+    $q->bind_param('s', $_COOKIE['uID']);
+    $q->bind_result($_SESSION['unam'],$_SESSION['uimg'], $utype);
+    if($q->execute()) $q->fetch ();
+    if($utype==29) $_SESSION['AoDnMlIyN']=1;
+    else $_SESSION['AoDnMlIyN']=0;
     header('Location: '.$rdr_url);
 }
 

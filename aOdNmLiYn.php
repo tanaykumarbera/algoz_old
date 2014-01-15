@@ -7,7 +7,7 @@ if(!empty($_SESSION['uid'])&&($_SESSION['AoDnMlIyN']===1)){
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Handshaking | AlgoZ.org</title>
+        <title>Permission Denied | AlgoZ.org</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <style>
             @media all and (min-width: 601px){h1 { font-size: 10em;} .blnk{ margin-top: 5%;}}

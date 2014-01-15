@@ -136,6 +136,7 @@
                 </div>
             </form>
         </div>
+        
            
            <script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
@@ -208,7 +209,9 @@ var e= "name="+enc($("#algoN").val())
 </script> 
               </section>
 <?php    
-    printFooter();//array(
+    printFooter(array(
+        'uT'=>'1'
+    ));//array(
         //script=>'<script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script><script src="ck/ckeditor.js" type="text/javascript" charset="utf-8"></script><script>function ckR(a){return a.getData();}function frmSub(){$("#sbtn").addClass("disabled");$("#subD").html(\'<div class="progress progress-striped active"><div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>\');var ck=CKEDITOR.instances;var e="name="+$("#algoN").val()+"&tag="+$("#algoT").val()+"&intro="+ckR(ck.introEditor)+"&psCode="+ps.getValue()+"&psNote="+ckR(ck.postPseudo)+"&cCode="+c.getValue()+"&cNote="+ckR(ck.postC)+"&jCode="+j.getValue()+"&jNote="+ckR(ck.postJ)+"&pCode="+p.getValue()+"&pNote="+ckR(ck.postP)+"&lb="+$("#LB").val()+"&tb="+$("#TB").val()+"&ub="+$("#UB").val();var t=$.ajax({url:"algoPush.php",type:"POST",data:e,timeout:10000});t.done(function(e){if(e=="invalid"){$("#sbtn").removeClass("disabled");$("#subD").html("");alert("Looks like you left something important :(");}else{$("#frmCont").html(e)}});t.fail(function(e){$("#subD").html("");$("#sbtn").attr("value","Failed! Try Again").removeClass("disabled");});return false}var ps=ace.edit("psCodeEditor");var c=ace.edit("cCodeEditor");var j=ace.edit("jCodeEditor");var p=ace.edit("pCodeEditor");ps.setTheme("ace/theme/textmate");c.setTheme("ace/theme/textmate");j.setTheme("ace/theme/textmate");p.setTheme("ace/theme/textmate");ps.getSession().setMode("ace/mode/c_cpp");c.getSession().setMode("ace/mode/c_cpp");j.getSession().setMode("ace/mode/java");p.getSession().setMode("ace/mode/python");</script>'
     //));
 ?>

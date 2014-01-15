@@ -168,7 +168,8 @@ printHeader(array(
 </script>
 <?php
 printFooter(array(
-    'gid' => $ugID
+    'gid' => $ugID,
+    'uT'=>'1'
 ));
 
 ?>

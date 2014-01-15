@@ -164,8 +164,10 @@
             
         }
     </script>
+    
 <?php
     printFooter(array(
-        'jReady'=>'lalgo();'
+        'jReady'=>'lalgo();',
+        'uT'=>'1'
     ));
 ?>

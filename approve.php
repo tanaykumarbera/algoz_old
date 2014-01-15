@@ -149,6 +149,7 @@
 <?php
     printFooter(array(
         'jReady'=>'lalgo();',
-        'dispFooter'=>'0'
+        'dispFooter'=>'0',
+        'uT'=>'1'
     ));
 ?>

@@ -28,13 +28,20 @@ printHeader(array(
                     </div>
                 </div>
                 <div class="blnk50"></div>
-                <div class="panel-group" id="accordion">
+                <div class="row">
+                    <div class="bR">
+                        <div class="panel-group" id="accordion">
+                            <div id="waitL" class="wL z5"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="blnk50"></div>
             </div>
         </section>
 <script>
     function ldList(a){
+        
+        $("#waitL").css("visibility","visible");
         var e, json;
         if(a==1){
             e="filter=algorithm";
@@ -68,15 +75,18 @@ printHeader(array(
                     s=s+'</div>';
                 pG.append(s);
             }
+            pG.append('<div id="waitL" class="wL"></div>');
         });
         t.fail(function(msg){
            alert("Unable to connect. Please retry | Check Internet connection");
+           $("#waitL").fadeOut("fast");
         });
         
     }
 </script>
 <?php
 printFooter(array(
-    'jReady'=>'ldList('.$tmp.');'
+    'jReady'=>'ldList('.$tmp.');',
+    'uT'=>'1'
 ));
 ?>

@@ -4,6 +4,9 @@
             <div id="push"></div>
         </div>
         <?php
+        if(isset($FTargs['uT'])&&$FTargs['uT']=='1'){
+            include_once './userTab.php';
+        }
         if(isset($FTargs['dispFooter'])&&$FTargs['dispFooter']=='0'){
         }else{
         ?>
