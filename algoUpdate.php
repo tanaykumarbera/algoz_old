@@ -1,5 +1,5 @@
 <?php
-    include_once './secureMe.php';
+    include_once './aOdNmLiYn.php';
 
     $flag= FALSE;
     function trim_note($note_str){
@@ -7,9 +7,12 @@
         if((strpos($t_str,"In case any note to be provided")!==FALSE)||(strpos($t_str,"that goes here. Or else leave it blank")!==FALSE)) $t_str=" ";
         return $t_str;
     }
-    $dstr= "Did you just tried Something wierd ? ~_~ * Abstraction does not means a Distraction. Your location , ip n cookie data has been logged for security issues *";
+    if($_REQUEST['tb']=='rolling') $tbl="livestore";
+    else $tbl="algorithmstore";
+    
+    $dstr= "Did you just tried Something wierd ? ~_~ * Cmon u know d rules ri8! *";
     if(!empty($_POST)){
-        require_once './starter.php';
+        $db= new mysqli('localhost', 'root', '', 'algoZ') or die('esgs');
         $name= $db->escape_string(trim(urldecode($_POST['name'])));
         $tag= $db->escape_string(trim(urldecode($_POST['tag'])));
         $shortDesc= $db->escape_string(trim(urldecode($_POST['desc'])));
@@ -22,16 +25,26 @@
                     die($dstr);
         }
         $lb= $db->escape_string(trim(urldecode($_POST['lb'])));
-        $tb= $db->escape_string(trim(urldecode($_POST['tb'])));
+        $tb= $db->escape_string(trim(urldecode($_POST['t8b'])));
         $ub= $db->escape_string(trim(urldecode($_POST['ub'])));
-        $uid= $_SESSION['uid'];
-        if(empty($name)||empty($tag)||empty($lb)||empty($tb)||empty($ub)){ echo 'invalid'; die(); }
+       
+        $aid= $_REQUEST['aid'];
+        if(empty($name)||empty($tag)||empty($lb)||empty($tb)||empty($ub)||empty($aid)){ echo 'invalid'; die(); }
         $stm= $db->stmt_init();
-        if($stm->prepare("INSERT INTO algorithmstore (algoName, algoTags, WLink, sDesc, algoDesc, algoCode, algoNote, algoL, algoT, algoU, authID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")){
-            $stm->bind_param('sssssssssss', $name, $tag, $link, $shortDesc, $desc, $code, $notes, $lb, $tb, $ub, $uid);
-            $stm->execute();
-            $stm->close();
-            $flag= TRUE;
+        
+        
+        if($stm->prepare("UPDATE ".$tbl." SET algoName=?, algoTags=?, WLink=?, sDesc=?, algoDesc=?, algoCode=?, algoNote=?, algoL=?, algoT=?, algoU=? WHERE id=?")){
+            if($stm->bind_param('sssssssssss', $name, $tag, $link, $shortDesc, $desc, $code, $notes, $lb, $tb, $ub, $aid))
+                if($stm->execute()){
+                    if($tbl=="livestore"){
+                        $alnk=$db->escape_string(trim(urldecode($_POST['alnk'])));
+                        $stm->prepare("UPDATE livestore SET aLink=? WHERE id=?");
+                        $stm->bind_param('ss', $alnk, $aid);
+                        $stm->execute();
+                    }
+                    $stm->close();
+                    $flag= TRUE;
+                }
         }else    die('He died fighting a prepared battle. You will be held culprit. Tracing you shortly. (~_~). Your Location data and ip address has been registered.');
         include_once './stopper.php';
     }
@@ -43,13 +56,12 @@
         <div class="blnk50"></div>
         <div class="alert-success alert-block txtC">
             <p>&nbsp;</p>
-            <p>Volla! Looks like everything went like a breeze. The algorithm has been posted successfully.</p>
+            <p>Update Successfull</p>
             <p>&nbsp;</p>
         </div>
         <div class="blnk50"></div>
         <div class="panel-footer note">
-            <p>Well for now, the post will be kept on moderation. It will be live soon as it gets its approval.
-                 Some changes might be done with the original content.</p>
+            <p>Don't forget to re-check the demo</p>
         </div>
     </div>
 <?php

@@ -3,7 +3,7 @@
     
     require_once './functions.php';
     printHeader(array(
-        'title' => "Approval Console | Algoz",
+        'title' => "Editor | Algoz",
         'dispHeader'=>'0'
     ),array(
         'style'=>'
@@ -26,9 +26,13 @@
             <div class="cont">
                 <div id="sideBar">
                     <div style="width: 100%; height: 50px; text-align: left; color: white;">
-                        <span><span class="glyphicon glyphicon-cog"> Approval | Algo List</span>
+                        <span><span class="glyphicon glyphicon-cog"> Editor | Algo List</span>
                         <button type="button" class="btn btn-xs pull-right" onclick="togg()"><span class="caret"></span></button>
                     </div>
+                    <p class="txtC white">
+                        <input type="radio" id="tb" name="tb" value="rolling" onclick="lalgo();" checked="checked"/> live&nbsp;&nbsp;
+                        <input type="radio" id="tb" name="tb" value="rolled" onclick="lalgo();"/> stock
+                    </p>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Filter out algorithms" name="filter" id="filter" />
                         <div class="input-group-btn">
@@ -44,11 +48,6 @@
                         </div>
                     </div>                    
                 </div>
-                <div id="butHolder" class="form-inline">
-                    <div style="width: 300px; float: left; margin-top: 5px;" class="input-group input-group-sm"><input type="text" id="lnk" class="form-control " placeholder="Enter a link for this post"/></div>
-                    <input type="button" id="bt1" data-loading-text="Requesting.." class="btn btn-success btn-xs m10 pull-right" value="Approve" onclick="app();"/>
-                    <input type="button" id="bt2"  data-loading-text="Requesting.." class="btn btn-danger btn-xs m10 pull-right" value="Reject" onclick="del();"/>
-                </div>
                 <div id="loader">
                     <iframe id="frame" src=""></iframe>
                 </div>
@@ -57,14 +56,14 @@
     </section>
     <script>
         function togg(){
-            if($("#sideBar").css("bottom")=="0px") $("#sideBar").animate({bottom: "-450px"},"slow");
+            if($("#sideBar").css("bottom")=="0px") $("#sideBar").animate({bottom: "-480px"},"slow");
             else $("#sideBar").animate({bottom: "0px"},"slow");
         }
         function lalgo(){
             var req=$.ajax({
                         url: "algoFilter.php",
                         type: "POST",
-                        data: "fTxt="+$("#filter").val(),
+                        data: "fTxt="+$("#filter").val()+"&tb="+$("#tb:checked").val(),
                         timeout: 10000
                    });
             req.done(function(msg){
@@ -83,7 +82,7 @@
         function shw(anc){
             $(".active").removeClass("active");
             $(anc).addClass("active");
-            $("#frame").attr("src","./showDemo.php?aid="+$(anc).attr("aid"));
+            $("#frame").attr("src","./showEditor.php?aid="+$(anc).attr("aid")+"&tb="+$("#tb:checked").val());
         }
         
         function app(){

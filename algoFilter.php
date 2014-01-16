@@ -8,7 +8,9 @@
         $ft= $db->escape_string(trim($_REQUEST['fTxt']));
         
         $stm= $db->stmt_init();
-        $stm->prepare("SELECT id, algoName FROM algorithmstore WHERE algoName LIKE ?");
+        if(isset($_REQUEST['tb'])&&$_REQUEST['tb']=='rolling') $tbl="livestore";
+        else $tbl="algorithmstore";
+        $stm->prepare("SELECT id, algoName FROM ".$tbl." WHERE algoName LIKE ?");
         $lft= "%{$ft}%";
         $stm->bind_param('s', $lft);
         $stm->bind_result($aID, $aNam);
