@@ -14,8 +14,6 @@
                 $q->fetch (); 
                 $q->close();
                 $bool =TRUE;
-                if($utype==1) $_SESSION['AoDnMlIyN']=1;
-                else $_SESSION['AoDnMlIyN']=0;
             }
         }
     }
@@ -33,7 +31,7 @@
         <?php } ?>
             <div id="authImg" class="z3"><img src="<?php echo $_SESSION['uimg'];?>" class="img-circle z5" height="50px" width="50px"/></div>
             <div id="authGp"></div>
-            <a href="./gLogger.php?logout=true" title="log off"><span id="lgbtn" class="glyphicon glyphicon-off white"></span></a>
+            <a href="./gLogger.php?logout=true&rdr=http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>" title="log off"><span id="lgbtn" class="glyphicon glyphicon-off white"></span></a>
         </div>
 <?php
     }
