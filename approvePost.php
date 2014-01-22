@@ -1,7 +1,9 @@
 <?php
-    include_once './aOdNmLiYn.php';
+    require_once './aOdNmLiYn.php';
+    require_once './functions.php';
     
     $f=FALSE;
+    
     if(!empty($_POST)){
         if(!empty($_POST['apv'])&&(!empty($_POST['lnk']))){
             $link= $_POST['lnk'];
@@ -13,8 +15,10 @@
             $ch= 2;
         }
         if(!empty($ch)){
-            $db= new mysqli('localhost', 'root', '', 'algoZ');
+            $db= __db();
+            
             $q= $db->stmt_init();
+            
             $q->prepare("SELECT algoName, algoTags, WLink, sDesc, algoDesc, algoCode, algoNote, algoL, algoT, algoU, authID, listedCat FROM algorithmstore WHERE id=?");
             $q->bind_param('s', $wid);
             $q->bind_result($nam, $tags, $wlink, $mdesc, $desc, $code, $note, $lb, $tb, $ub, $uid, $cat);
@@ -42,7 +46,7 @@
                     if($f1&&$f2) $f=TRUE;
                 }
             }
-            $q->close();
+            __close($q);
         }
     }
     

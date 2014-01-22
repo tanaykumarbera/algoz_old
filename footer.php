@@ -53,6 +53,7 @@
 
     <script src="b/js/jquery.js"></script>
     <script src="b/js/bootstrap.min.js"></script>
+    <?php if(!empty($FTargs)&&$FTargs['aceScript']==1) echo '<script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>';?>
     <?php if(!empty($FTargs)&&!empty($FTargs['script'])) echo $FTargs['script']."\n";?>
     <script><?php if(!empty($FTargs)&&!empty($FTargs['fscript'])) echo $FTargs['fscript'];?>$(document).ready(function(){$("#nav-btn").click(function(){$("#nav-icn").toggleClass("glyphicon-th glyphicon-th-large")});<?php if(!empty($FTargs)&&!empty($FTargs['jReady'])) echo $FTargs['jReady']; ?>});</script>
     <?php if(!empty($FTargs)&&!empty($FTargs['lscript'])) echo $FTargs['lscript'];?>

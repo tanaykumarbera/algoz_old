@@ -1,25 +1,11 @@
 <?php
-    include_once './secureMe.php';
-
+    require_once './secureMe.php';
     require_once './functions.php';
+    
     printHeader(array(
-        'title' => "Compose | Algorithms"
-    ),array(
-        'style' => '
-            <style type="text/css" media="screen">
-                #psCodeEditor,#cCodeEditor,#jCodeEditor,#pCodeEditor{ 
-                    position: relative;
-                    min-height: 300px;
-                }
-                #introEditor{
-                    min-height: 500px;
-                }
-                #postPseudo,#postC,#postJ,#postP{
-                    min-height: 100px;
-                    
-                }
-            </style>
-        '
+            'title' => "Compose | Algorithms"
+        ),array(
+            'style' => '<style type="text/css" media="screen">#psCodeEditor,#cCodeEditor,#jCodeEditor,#pCodeEditor{position:relative;min-height:300px}#introEditor{min-height:500px}#postPseudo,#postC,#postJ,#postP{min-height:100px}</style>'
     ));
 ?>
     <section>
@@ -58,45 +44,45 @@
                 </div>
                 <div class="form-group well">
                             <label for="introEditor">Contextual part</label>
-                            <div id="introEditor"><?php echo "\n\n\n\n\n&lt;!-- provide a brief introduction --&gt;\n\n\n\n\n";?></div>
+                            <div id="introEditor"><pre><?php echo "\n\n\n\n\n&lt;!-- provide a brief introduction --&gt;\n\n\n\n\n";?></pre></div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">Pseudo Code</div>
-                    <div id="psCodeEditor"><?php echo "\n\n\n\n\n /* Pseudo Code goes Here @_- */\n\n\n\n\n\n";?></div>
+                    <div id="psCodeEditor"><pre><?php echo "\n\n\n\n\n /* Pseudo Code goes Here @_- */\n\n\n\n\n\n";?></pre></div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label for="postPseudo">Post Pseudo Note</label>
-                            <div id="postPseudo"><?php echo "\n&lt;!-- In case any note to be provided with the pseudo code, that goes here. Or else leave it blank.--&gt;\n";?></div>
+                            <div id="postPseudo"><pre><?php echo "\n&lt;!-- In case any note to be provided with the pseudo code, that goes here. Or else leave it blank.--&gt;\n";?></pre></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default panel-primary">
                     <div class="panel-heading">Implementation in C</div>
-                    <div id="cCodeEditor"><?php echo "\n\n\n\n\n\n\n\n\n /* C Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></div>
+                    <div id="cCodeEditor"><pre><?php echo "\n\n\n\n\n\n\n\n\n /* C Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></pre></div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label for="postC">Note</label>
-                            <div id="postC"><?php echo "\n&lt;!-- In case any note to be provided with the C code, that goes here. Or else leave it blank.--&gt;\n";?></div>
+                            <div id="postC"><pre><?php echo "\n&lt;!-- In case any note to be provided with the C code, that goes here. Or else leave it blank.--&gt;\n";?></pre></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default panel-primary">
                     <div class="panel-heading">Implementation in Java</div>
-                    <div id="jCodeEditor"><?php echo "\n\n\n\n\n\n\n\n\n /* Java Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></div>
+                    <div id="jCodeEditor"><pre><?php echo "\n\n\n\n\n\n\n\n\n /* Java Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></pre></div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label for="postJ">Note</label>
-                            <div id="postJ"><?php echo "\n&lt;!-- In case any note to be provided with the java code, that goes here. Or else leave it blank.--&gt;\n";?></div>
+                            <div id="postJ"><pre><?php echo "\n&lt;!-- In case any note to be provided with the java code, that goes here. Or else leave it blank.--&gt;\n";?></pre></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default panel-primary">
                     <div class="panel-heading">Implementation in Python</div>
-                    <div id="pCodeEditor"><?php echo "\n\n\n\n\n\n\n\n\n /* Python Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></div>
+                    <div id="pCodeEditor"><pre><?php echo "\n\n\n\n\n\n\n\n\n /* Python Code goes Here @_- */\n\n\n\n\n\n\n\n\n\n";?></pre></div>
                     <div class="panel-footer">
                         <div class="form-group">
                             <label for="postP">Note</label>
-                            <div id="postP"><?php echo "\n&lt;!-- In case any note to be provided with the python code, that goes here. Or else leave it blank.--&gt;\n";?></div>
+                            <div id="postP"><pre><?php echo "\n&lt;!-- In case any note to be provided with the python code, that goes here. Or else leave it blank.--&gt;\n";?></pre></div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +122,32 @@
                 </div>
             </form>
         </div>
-        
+    </section>
+<?php    
+    printFooter(array(
+        'fscript'=>'var ps=ace.edit("psCodeEditor");var c=ace.edit("cCodeEditor");var j=ace.edit("jCodeEditor");var p=ace.edit("pCodeEditor");var ie=ace.edit("introEditor");var pps=ace.edit("postPseudo");var pc=ace.edit("postC");var pj=ace.edit("postJ");var pp=ace.edit("postP");ps.setTheme("ace/theme/textmate");c.setTheme("ace/theme/textmate");j.setTheme("ace/theme/textmate");p.setTheme("ace/theme/textmate");pps.setTheme("ace/theme/crimson_editor");pc.setTheme("ace/theme/crimson_editor");pj.setTheme("ace/theme/crimson_editor");pp.setTheme("ace/theme/crimson_editor");ie.setTheme("ace/theme/crimson_editor");ps.getSession().setMode("ace/mode/c_cpp");c.getSession().setMode("ace/mode/c_cpp");j.getSession().setMode("ace/mode/java");p.getSession().setMode("ace/mode/python");pps.getSession().setMode("ace/mode/html");pc.getSession().setMode("ace/mode/html");pj.getSession().setMode("ace/mode/html");pp.getSession().setMode("ace/mode/html");ie.getSession().setMode("ace/mode/html");function enc(a){return encodeURIComponent(a)}function frmSub(){$("#sbtn").addClass("disabled");$("#subD").html(\'<div class="progress progress-striped active"><div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>\');var b="name="+enc($("#algoN").val())+"&tag="+enc($("#algoT").val())+"&link="+enc($("#aLink").val())+"&desc="+enc($("#aDesc").val())+"&intro="+enc(ie.getValue())+"&psCode="+enc(ps.getValue())+"&psNote="+enc(pps.getValue())+"&cCode="+enc(c.getValue())+"&cNote="+enc(pc.getValue())+"&jCode="+enc(j.getValue())+"&jNote="+enc(pj.getValue())+"&pCode="+enc(p.getValue())+"&pNote="+enc(pp.getValue())+"&lb="+enc($("#LB").val())+"&tb="+enc($("#TB").val())+"&ub="+enc($("#UB").val());var a=$.ajax({url:"algoPush.php",type:"POST",data:b,timeout:10000});a.done(function(d){if(d=="invalid"){$("#sbtn").removeClass("disabled");$("#subD").html("");alert("Looks like you left something important :(")}else{$("#frmCont").html(d)}});a.fail(function(d){$("#subD").html("");$("#sbtn").attr("value","Failed! Try Again").removeClass("disabled")})};',
+        'uT'=>'1',
+        'aceScript'=> '1'
+    ));
+    
+    /*
+    -----------------------------------------------------------------------------
+     * <style type="text/css" media="screen">
+                #psCodeEditor,#cCodeEditor,#jCodeEditor,#pCodeEditor{ 
+                    position: relative;
+                    min-height: 300px;
+                }
+                #introEditor{
+                    min-height: 500px;
+                }
+                #postPseudo,#postC,#postJ,#postP{
+                    min-height: 100px;
+                    
+                }
+            </style>
+     * 
+     * 
+     *        
            
            <script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
@@ -207,11 +218,6 @@ var e= "name="+enc($("#algoN").val())
 
 	
 </script> 
-              </section>
-<?php    
-    printFooter(array(
-        'uT'=>'1'
-    ));//array(
-        //script=>'<script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script><script src="ck/ckeditor.js" type="text/javascript" charset="utf-8"></script><script>function ckR(a){return a.getData();}function frmSub(){$("#sbtn").addClass("disabled");$("#subD").html(\'<div class="progress progress-striped active"><div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>\');var ck=CKEDITOR.instances;var e="name="+$("#algoN").val()+"&tag="+$("#algoT").val()+"&intro="+ckR(ck.introEditor)+"&psCode="+ps.getValue()+"&psNote="+ckR(ck.postPseudo)+"&cCode="+c.getValue()+"&cNote="+ckR(ck.postC)+"&jCode="+j.getValue()+"&jNote="+ckR(ck.postJ)+"&pCode="+p.getValue()+"&pNote="+ckR(ck.postP)+"&lb="+$("#LB").val()+"&tb="+$("#TB").val()+"&ub="+$("#UB").val();var t=$.ajax({url:"algoPush.php",type:"POST",data:e,timeout:10000});t.done(function(e){if(e=="invalid"){$("#sbtn").removeClass("disabled");$("#subD").html("");alert("Looks like you left something important :(");}else{$("#frmCont").html(e)}});t.fail(function(e){$("#subD").html("");$("#sbtn").attr("value","Failed! Try Again").removeClass("disabled");});return false}var ps=ace.edit("psCodeEditor");var c=ace.edit("cCodeEditor");var j=ace.edit("jCodeEditor");var p=ace.edit("pCodeEditor");ps.setTheme("ace/theme/textmate");c.setTheme("ace/theme/textmate");j.setTheme("ace/theme/textmate");p.setTheme("ace/theme/textmate");ps.getSession().setMode("ace/mode/c_cpp");c.getSession().setMode("ace/mode/c_cpp");j.getSession().setMode("ace/mode/java");p.getSession().setMode("ace/mode/python");</script>'
-    //));
-?>
+     */
+    ?>
+

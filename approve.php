@@ -1,24 +1,24 @@
 <?php
-    include_once './aOdNmLiYn.php';
-    
+    require_once './aOdNmLiYn.php';
     require_once './functions.php';
+    
     printHeader(array(
-        'title' => "Approval Console | Algoz",
-        'dispHeader'=>'0'
-    ),array(
-        'style'=>'
-            <style>html{min-width: 1000px !important;}
-            .cont{ min-width: 970px !important; display: block; margin: 10px auto;}
-            #sideBar{ width: 350px; position: fixed; left: 10px; bottom: 0px; z-index: 1; padding: 20px; background: black; opacity: 0.8;}
-            #loader{ position: absolute; width: 90%; height: 90%; margin: 10px auto; z-index: 0;}
-            #frame{ position: relative; height: 100%; width: 100%; border: 2px dotted #ccc; }
-            #catL{ height: 300px;}
-            #listPanel{ height: 350px;}
-            #catL, #algoList{overflow-y: scroll; overflow-x: hidden;}
-            #algoList{ height: 300px;}
-            #butHolder{position: fixed; bottom: 20px; right: 30px; padding: 5px 20px; width: 500px; height: 30px;}
-            </style>
-        '
+            'title' => "Approval Console | Algoz",
+            'dispHeader'=>'0'
+        ),array(
+            'style'=>'
+                <style>html{min-width: 1000px !important;}
+                .cont{ min-width: 970px !important; display: block; margin: 10px auto;}
+                #sideBar{ width: 350px; position: fixed; left: 10px; bottom: 0px; z-index: 1; padding: 20px; background: black; opacity: 0.8;}
+                #loader{ position: absolute; width: 90%; height: 90%; margin: 10px auto; z-index: 0;}
+                #frame{ position: relative; height: 100%; width: 100%; border: 2px dotted #ccc; }
+                #catL{ height: 300px;}
+                #listPanel{ height: 350px;}
+                #catL, #algoList{overflow-y: scroll; overflow-x: hidden;}
+                #algoList{ height: 300px;}
+                #butHolder{position: fixed; bottom: 20px; right: 30px; padding: 5px 20px; width: 500px; height: 30px;}
+                </style>
+            '
     ));
 ?>
     <section>

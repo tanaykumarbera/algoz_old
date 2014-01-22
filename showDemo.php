@@ -1,13 +1,17 @@
 <?php
-include_once './secureMe.php';
+require_once './aOdNmLiYn.php';
+require_once './functions.php';
 
 $aid= $_GET['aid'];
-$db= new mysqli('localhost', 'root', '', 'algoz');
+$db= __db();
+
 $q= $db->stmt_init();
 $q->prepare("SELECT * FROM algorithmstore WHERE id= ?");
 $q->bind_param('i', $aid);
 $q->execute();
+
 $res= $q->get_result();
+
 if($res->num_rows > 0){
     $algo= $res->fetch_array(MYSQLI_ASSOC);
     $tags= explode(';', $algo['algoTags']);
@@ -31,8 +35,6 @@ if($res->num_rows > 0){
         $q->execute(); $q->fetch();
     }
     
-    $q->close();
-    require_once './functions.php';
     
     $source= array(); $notes=array();
     $source= json_decode($algo['algoCode']);
@@ -156,4 +158,8 @@ if($res->num_rows > 0){
         'gid' => $ugID
     ));
 }
+
+__close($db);
+__close($q);
+
 ?>
