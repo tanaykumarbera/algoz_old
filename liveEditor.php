@@ -1,7 +1,7 @@
 <?php
-    include_once './aOdNmLiYn.php';
-    
+    require_once './aOdNmLiYn.php';
     require_once './functions.php';
+    
     printHeader(array(
         'title' => "Editor | Algoz",
         'dispHeader'=>'0'
@@ -84,66 +84,7 @@
             $(anc).addClass("active");
             $("#frame").attr("src","./showEditor.php?aid="+$(anc).attr("aid")+"&tb="+$("#tb:checked").val());
         }
-        
-        function app(){
-            if($("#lnk").val()==""){ alert("\nPlease enter a link for the post. use alphanumeric and _ only."); return; }
-            $("#bt1").attr("value","Requesting..");
-            $("#bt1, #bt2").addClass("disabled");
-            var req=$.ajax({
-                        url: "approvePost.php",
-                        type: "POST",
-                        data: "apv="+$("a.active").attr("aid")+"&lnk="+$("#lnk").val(),
-                        timeout: 10000
-                   });
-            req.done(function(msg){
-                if(msg!="error"){
-                    alert("Approved");
-                    lalgo();
-                    $("#bt1").attr("value","Approve");
-                    $("#bt1, #bt2").removeClass("disabled");
-                }
-                else{
-                    alert("Something went wrong! Try again");
-                    $("#bt1").attr("value","Approve");
-                    $("#bt1, #bt2").removeClass("disabled");
-                }
-            });
-            req.fail(function(){
-                alert("Cant connect! Try again");
-                $("#bt1").attr("value","Approve");
-                $("#bt1, #bt2").removeClass("disabled");
-            });
-        }
-        function del(){
-            if(confirm("You sure? It cant be reverted back.")&&($("a.active").attr("aid")!="")){
-                $("#bt2").attr("value","Requesting..");
-                $("#bt1, #bt2").addClass("disabled");
-                var req=$.ajax({
-                            url: "approvePost.php",
-                            type: "POST",
-                            data: "del="+$("a.active").attr("aid"),
-                            timeout: 10000
-                       });
-                req.done(function(msg){
-                    if(msg!="error"){
-                        alert("Deleted! :(");
-                        lalgo();
-                        $("#bt2").attr("value","Reject");
-                        $("#bt1, #bt2").removeClass("disabled");
-                    }
-                    else{
-                        alert("Something went wrong! Try again");
-                        $("#bt2").attr("value","Reject");
-                        $("#bt1, #bt2").removeClass("disabled");
-                    }
-                });
-                req.fail(function(){
-                    alert("Cant connect! Try again");
-                    $("#bt2").attr("value","Reject");
-                    $("#bt1, #bt2").removeClass("disabled");
-                });
-            }
-        }
+       
     </script>
 <?php
     printFooter(array(

@@ -1,9 +1,12 @@
 <?php
+require_once './functions.php';
+
 $tags= explode(';', $wVar['algoTags']);
 $carr= explode('_', $wVar['listedCat']);
 $q->prepare("SELECT categoryName FROM algorithmcategory WHERE sr= ?");
 $q->bind_param('i', $cat_id);
 $q->bind_result($cat_nam);
+
 $cats=array();
 foreach ($carr as $cat_i){
     if(!empty($cat_i)){
@@ -19,14 +22,11 @@ if(!empty($wVar['authID'])){
     $q->execute(); $q->fetch();
 }
 
-$q->close();
-
-require_once './functions.php';
+__close($q);
 
 $source= array(); $notes=array();
 $source= json_decode($wVar['algoCode']);
 $notes= json_decode($wVar['algoNote']);
-
 
 printHeader(array(
     'title'=> trim($tags[0]).' | '.trim($tags[1]).' | AlgoZ'
@@ -145,8 +145,15 @@ printHeader(array(
     <div class="blnk50"></div>
 </section>
 
+<?php
+printFooter(array(
+    'lscript'=>'<script>var c=ace.edit("codeC_body");var j=ace.edit("codeJ_body");var p=ace.edit("codeP_body");var ps=ace.edit("pseudoC");cnf(c,"c_cpp");cnf(j,"java");cnf(p,"python");function cnf(a,b){a.setTheme("ace/theme/textmate");a.getSession().setMode("ace/mode/"+b);a.setReadOnly(true);a.setOptions({maxLines:100})}ps.setOptions({maxLines:Infinity});ps.setReadOnly(true);</script>',
+    'gid' => $ugID,
+    'uT'=>'1',
+    'aceScript'=> '1'
+));
 
-<script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+/*-----------------------------------------------------------------------------------------
 <script>
     var c= ace.edit("codeC_body");
     var j= ace.edit("codeJ_body");
@@ -166,10 +173,7 @@ printHeader(array(
     ps.setOptions({maxLines: Infinity});
     ps.setReadOnly(true);
 </script>
-<?php
-printFooter(array(
-    'gid' => $ugID,
-    'uT'=>'1'
-));
+var c=ace.edit("codeC_body");var j=ace.edit("codeJ_body");var p=ace.edit("codeP_body");var ps=ace.edit("pseudoC");cnf(c,"c_cpp");cnf(j,"java");cnf(p,"python");function cnf(a,b){a.setTheme("ace/theme/textmate");a.getSession().setMode("ace/mode/"+b);a.setReadOnly(true);a.setOptions({maxLines:100})}ps.setOptions({maxLines:Infinity});ps.setReadOnly(true);  
+ */
 
 ?>

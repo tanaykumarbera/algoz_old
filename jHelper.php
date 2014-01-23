@@ -1,19 +1,13 @@
 <?php
 
-    function _chk($x){
-        return !empty($x['list']);
-    }
-    function isAbsent($a, $b){
-        foreach($b as $k){
-            if($k['aNam']==$a) return FALSE;
-        }
-        return TRUE;
-    }
-
-
+    require_once './functions.php';
+    
     $filter= $_REQUEST['filter'];
     $done= FALSE;
-    $db= new mysqli('localhost', 'root', '', 'algoZ');
+    
+    
+    $db= __db();
+    
     if($filter=="algorithm"){
         $q= $db->stmt_init();
         $q->prepare("SELECT algoName, aLink FROM livestore ORDER BY algoName ASC");
@@ -36,7 +30,8 @@
             if(!empty($list)) array_push($json, array('Cnam'=>$chP, 'list'=>$list));
             $eJSON= json_encode($json);
             print_r($eJSON);
-            $q->close();
+            
+            __close($q);
         }
     }else if($filter=="tag"){
         $q= $db->stmt_init();
@@ -58,7 +53,8 @@
             sort($json);
             $eJSON=json_encode($json);
             print_r($eJSON);
-            $q->close();
+            
+            __close($q);
         }
     }else{
         $q= $db->stmt_init();
@@ -82,6 +78,7 @@
             $eJSON= json_encode($json);
             print_r($eJSON);
         }
-        $q->close();
+        
+        __close($q);
     }
 ?>

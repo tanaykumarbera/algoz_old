@@ -1,41 +1,46 @@
 <?php
-    include_once './aOdNmLiYn.php';
+    require_once './aOdNmLiYn.php';
+    require_once './functions.php';
+    
     
     if(isset($_REQUEST['tb'])&&$_REQUEST['tb']=='rolling') $tbl="livestore";
         else $tbl="algorithmstore";
     $id= $_REQUEST['aid'] ;
     
-    $db= new mysqli('localhost', 'root', '', 'algoZ') or die('esgs');
+    $db= __db();
+    
     $stm= $db->stmt_init();
     $stm->prepare("SELECT * FROM ".$tbl." WHERE id= ?");
     $stm->bind_param('s', $id);
     $stm->execute();
+    
     $res= $stm->get_result();
     $algo= $res->fetch_array(MYSQLI_ASSOC);
     
     $code= json_decode($algo['algoCode']);
     $note= json_decode($algo['algoNote']);
     
-    require_once './functions.php';
+    __close($stm);
+    __close($db);
+    
     printHeader(array(
-        'title' => "Editor Window | Algorithms",
-        'dispHeader'=>'0'
-    ),array(
-        'style' => '
-            <style type="text/css" media="screen">
-                #psCodeEditor,#cCodeEditor,#jCodeEditor,#pCodeEditor{ 
-                    position: relative;
-                    min-height: 300px;
-                }
-                #introEditor{
-                    min-height: 500px;
-                }
-                #postPseudo,#postC,#postJ,#postP{
-                    min-height: 100px;
-                    
-                }
-            </style>
-        '
+            'title' => "Editor Window | Algorithms",
+            'dispHeader'=>'0'
+        ),array(
+            'style' => '
+                <style type="text/css" media="screen">
+                    #psCodeEditor,#cCodeEditor,#jCodeEditor,#pCodeEditor{ 
+                        position: relative;
+                        min-height: 300px;
+                    }
+                    #introEditor{
+                        min-height: 500px;
+                    }
+                    #postPseudo,#postC,#postJ,#postP{
+                        min-height: 100px;
+                    }
+                </style>
+            '
     ));
 ?>
     <section>
@@ -154,12 +159,7 @@
                 </div>
             </form>
         </div>
-        
-           
            <script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-
-
-
 <script>
     
     		var ps = ace.edit("psCodeEditor");
@@ -224,15 +224,11 @@ var e= "name="+enc($("#algoN").val())
         t.fail(function(e){$("#subD").html("");$("#sbtn").attr("value","Failed! Try Again").removeClass("disabled");});
 }
 
-
-	
 </script> 
               </section>
 <?php    
     printFooter(array(
         'uT'=>'0',
         'dispFooter'=>'0'
-    ));//array(
-        //script=>'<script src="http://ajaxorg.github.io/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script><script src="ck/ckeditor.js" type="text/javascript" charset="utf-8"></script><script>function ckR(a){return a.getData();}function frmSub(){$("#sbtn").addClass("disabled");$("#subD").html(\'<div class="progress progress-striped active"><div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div>\');var ck=CKEDITOR.instances;var e="name="+$("#algoN").val()+"&tag="+$("#algoT").val()+"&intro="+ckR(ck.introEditor)+"&psCode="+ps.getValue()+"&psNote="+ckR(ck.postPseudo)+"&cCode="+c.getValue()+"&cNote="+ckR(ck.postC)+"&jCode="+j.getValue()+"&jNote="+ckR(ck.postJ)+"&pCode="+p.getValue()+"&pNote="+ckR(ck.postP)+"&lb="+$("#LB").val()+"&tb="+$("#TB").val()+"&ub="+$("#UB").val();var t=$.ajax({url:"algoPush.php",type:"POST",data:e,timeout:10000});t.done(function(e){if(e=="invalid"){$("#sbtn").removeClass("disabled");$("#subD").html("");alert("Looks like you left something important :(");}else{$("#frmCont").html(e)}});t.fail(function(e){$("#subD").html("");$("#sbtn").attr("value","Failed! Try Again").removeClass("disabled");});return false}var ps=ace.edit("psCodeEditor");var c=ace.edit("cCodeEditor");var j=ace.edit("jCodeEditor");var p=ace.edit("pCodeEditor");ps.setTheme("ace/theme/textmate");c.setTheme("ace/theme/textmate");j.setTheme("ace/theme/textmate");p.setTheme("ace/theme/textmate");ps.getSession().setMode("ace/mode/c_cpp");c.getSession().setMode("ace/mode/c_cpp");j.getSession().setMode("ace/mode/java");p.getSession().setMode("ace/mode/python");</script>'
-    //));
+    ));
 ?>

@@ -1,6 +1,6 @@
 <?php
 require_once './functions.php';
-define("HOST", "http://{$_SERVER['HTTP_HOST']}/algoFreak");
+
 printHeader(array(
     'title'=> $titl.' | AlgoZ'
 ));
@@ -69,7 +69,7 @@ printFooter(array(
 ));
 
 
-/* $key="cat%10";
+/*          $key="cat%10";
             $db= new mysqli('localhost', 'root', '', 'algoz');
             $q= $db->stmt_init();
             $q->prepare("SELECT sr, categoryName FROM algorithmcategory WHERE categoryName LIKE ?");

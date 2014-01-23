@@ -1,13 +1,13 @@
 <?php
+
+    define("HOST", "http://{$_SERVER['HTTP_HOST']}/algoFreak");
     
     function printHeader($HCargs, $HTargs= NULL){
-        require_once './starter.php';
-        include './header.php';
+        require_once './header.php';
     }
     
     function printFooter($FTargs= NULL){
-        include './footer.php';
-        require_once './stopper.php';
+        require_once './footer.php';
     }
     
     function __($arg){
@@ -21,5 +21,16 @@
     
     function __close($ob){
         $ob->close();
+    }
+    
+    function _chk($x){
+        return !empty($x['list']);
+    }
+    
+    function isAbsent($a, $b){
+        foreach($b as $k){
+            if($k['aNam']==$a) return FALSE;
+        }
+        return TRUE;
     }
 ?>

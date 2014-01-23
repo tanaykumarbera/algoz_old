@@ -30,7 +30,7 @@
                     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                         <div class="navbar-header">
                             <button type="button" id="nav-btn" class="navbar-toggle btn-lg mTop10" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                                <i id="nav-icn" class="glyphicon glyphicon-th white fS1"></i>
+                                <span id="nav-icn" class="glyphicon glyphicon-th white fS1"></span>
                             </button>
                             <a class="navbar-brand" rel="home" href="/" title="Home"><img src="./resources/logo/logo.png"/></a>
                         </div>
