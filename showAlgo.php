@@ -47,8 +47,8 @@ printHeader(array(
             </div>
             <div id="tags">
                 <blockquote itemprop="keywords" class="tags"><?php 
-                    foreach ($tags as $t){ $tag= trim($t); if(!empty($tag)) echo '<a href="'.str_ireplace(' ', '_', $tag).'" class="tdN" title="# tag"><span class="label label-info tag"><span class="glyphicon glyphicon-tag"></span> &nbsp;'.$tag.'</span></a> '.PHP_EOL;}
-                    foreach ($cats as $c){ $cat= trim($c); if(!empty($cat)) echo '<a href="'.str_ireplace(' ', '_', $cat).'" class="tdN" title="@ category"><span class="label label-info tag"><span class="glyphicon glyphicon-bookmark"></span>  &nbsp;'.$cat.'</span></a> '.PHP_EOL;}
+                    foreach ($tags as $t){ $tag= trim($t); if(!empty($tag)) echo '<a href="'.HOST.'/tag/'.str_ireplace(' ', '_', $tag).'" class="tdN" title="# tag"><span class="label label-info tag"><span class="glyphicon glyphicon-tag"></span> &nbsp;'.$tag.'</span></a> '.PHP_EOL;}
+                    foreach ($cats as $c){ $cat= trim($c); if(!empty($cat)) echo '<a href="'.HOST.'/category/'.str_ireplace(' ', '_', $cat).'" class="tdN" title="@ category"><span class="label label-info tag"><span class="glyphicon glyphicon-bookmark"></span>  &nbsp;'.$cat.'</span></a> '.PHP_EOL;}
                     echo '<span class="label label-warning tag" title="Lower Bound"><span class="glyphicon glyphicon-time"></span>  &nbsp;&Omega; ( '.$wVar['algoL'].' )</span> '.PHP_EOL;
                     echo '<span class="label label-warning tag" title="Tight Bound"><span class="glyphicon glyphicon-time"></span>  &nbsp;&Theta; ( '.$wVar['algoT'].' )</span> '.PHP_EOL;
                     echo '<span class="label label-warning tag" title="Upper Bound"><span class="glyphicon glyphicon-time"></span>  &nbsp;O ( '.$wVar['algoU'].' )</span> '.PHP_EOL;

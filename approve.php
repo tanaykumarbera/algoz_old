@@ -62,7 +62,7 @@
         }
         function lalgo(){
             var req=$.ajax({
-                        url: "algoFilter.php",
+                        url: "<?php echo HOST;?>/algoFilter.php",
                         type: "POST",
                         data: "fTxt="+$("#filter").val(),
                         timeout: 10000
@@ -83,7 +83,7 @@
         function shw(anc){
             $(".active").removeClass("active");
             $(anc).addClass("active");
-            $("#frame").attr("src","./showDemo.php?aid="+$(anc).attr("aid"));
+            $("#frame").attr("src","<?php echo HOST;?>/showDemo.php?aid="+$(anc).attr("aid"));
         }
         
         function app(){
@@ -91,7 +91,7 @@
             $("#bt1").attr("value","Requesting..");
             $("#bt1, #bt2").addClass("disabled");
             var req=$.ajax({
-                        url: "approvePost.php",
+                        url: "<?php echo HOST;?>/approvePost.php",
                         type: "POST",
                         data: "apv="+$("a.active").attr("aid")+"&lnk="+$("#lnk").val(),
                         timeout: 10000
@@ -120,7 +120,7 @@
                 $("#bt2").attr("value","Requesting..");
                 $("#bt1, #bt2").addClass("disabled");
                 var req=$.ajax({
-                            url: "approvePost.php",
+                            url: "<?php echo HOST;?>/approvePost.php",
                             type: "POST",
                             data: "del="+$("a.active").attr("aid"),
                             timeout: 10000

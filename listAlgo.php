@@ -9,8 +9,8 @@ printHeader(array(
     <div class="container">
         <div>
             <ol class="breadcrumb">
-                <li><a href="browseAll.php?filter=algorithm"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="browseAll.php?filter=<?php echo $bdlnk;?>"><?php echo $bdcm;?></a></li>
+                <li><a href="<?php echo HOST;?>/browseAll.php?filter=algorithm"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="<?php echo HOST;?>/browseAll.php?filter=<?php echo $bdlnk;?>"><?php echo $bdcm;?></a></li>
                 <li class="active"><?php echo $titl;?></li>
             </ol>
         </div>
@@ -32,7 +32,7 @@ while($algo= $wVar->fetch_array(MYSQLI_ASSOC)){
     }
 ?>
         <div id="algo" class="panel panel-info" itemscope itemtype="http://schema.org/Code">
-            <a class="tdN" href="<?php echo HOST.'/'.$algo['aLink'];?>">
+            <a class="tdN" href="<?php echo HOST.'/algo/'.$algo['aLink'];?>">
                 <div class="panel-body">
                     <?php   if(!empty($algo['WLink'])) echo '<meta itemprop="sameAs" content="'.$algo['WLink'].'"/>'.PHP_EOL;
                             if(!empty($GRepo)) echo '<meta itemprop="codeRepository" content="'.$GRepo.'"/>'.PHP_EOL;
@@ -49,8 +49,8 @@ while($algo= $wVar->fetch_array(MYSQLI_ASSOC)){
             </a>
             <div class="panel-footer">
                 <p itemprop="keywords" class="text-right tags"><?php 
-                    foreach ($tags as $t){ $tag= trim($t); if(!empty($tag)) echo '<a href="'.str_ireplace(' ', '_', $tag).'" class="tdN" title="# tag"><span class="label label-info tag"><span class="glyphicon glyphicon-tag"></span> &nbsp;'.$tag.'</span></a> '.PHP_EOL;}
-                    foreach ($cats as $c){ $cat= trim($c); if(!empty($cat)) echo '<a href="'.str_ireplace(' ', '_', $cat).'" class="tdN" title="@ category"><span class="label label-info tag"><span class="glyphicon glyphicon-bookmark"></span>  &nbsp;'.$cat.'</span></a> '.PHP_EOL;}   
+                    foreach ($tags as $t){ $tag= trim($t); if(!empty($tag)) echo '<a href="'.HOST.'/tag/'.str_ireplace(' ', '_', $tag).'" class="tdN" title="# tag"><span class="label label-info tag"><span class="glyphicon glyphicon-tag"></span> &nbsp;'.$tag.'</span></a> '.PHP_EOL;}
+                    foreach ($cats as $c){ $cat= trim($c); if(!empty($cat)) echo '<a href="'.HOST.'/category/'.str_ireplace(' ', '_', $cat).'" class="tdN" title="@ category"><span class="label label-info tag"><span class="glyphicon glyphicon-bookmark"></span>  &nbsp;'.$cat.'</span></a> '.PHP_EOL;}   
               ?></p>
             </div>
         </div>

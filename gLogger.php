@@ -145,7 +145,7 @@ if(!$login){
                 <div id="lbtn" class="blockC"><a href="<?php echo $authUrl;?>"><img src="resources/icons/gl.png" class="blockC img-responsive" height="66" width="300" alt="Loggin with Google+"/></a></div>
             </div>
             <div class="blnk"></div>
-            <div><img class="blockC" src="./resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
+            <div><img class="blockC" src="<?php echo HOST;?>/resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
         </div>
     </body>
 </html>
@@ -179,7 +179,7 @@ if(!$login){
                 <p>You Shouldn't be here.. Looks like something terrible ig soin . .# 2 hapin</p>
             </div>
             <div class="blnk"></div>
-            <div><img class="blockC" src="./resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
+            <div><img class="blockC" src="<?php echo HOST;?>/resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></div>
         </div>
     </body>
 </html>

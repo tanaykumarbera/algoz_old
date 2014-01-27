@@ -61,7 +61,7 @@
         }
         function lalgo(){
             var req=$.ajax({
-                        url: "algoFilter.php",
+                        url: "<?php echo HOST;?>/algoFilter.php",
                         type: "POST",
                         data: "fTxt="+$("#filter").val()+"&tb="+$("#tb:checked").val(),
                         timeout: 10000
@@ -82,7 +82,7 @@
         function shw(anc){
             $(".active").removeClass("active");
             $(anc).addClass("active");
-            $("#frame").attr("src","./showEditor.php?aid="+$(anc).attr("aid")+"&tb="+$("#tb:checked").val());
+            $("#frame").attr("src","<?php echo HOST;?>/showEditor.php?aid="+$(anc).attr("aid")+"&tb="+$("#tb:checked").val());
         }
        
     </script>

@@ -62,7 +62,7 @@
     <script>
         function lalgo(){
             var req=$.ajax({
-                        url: "algoFilter.php",
+                        url: "<?php echo HOST;?>/algoFilter.php",
                         type: "POST",
                         data: "fTxt="+$("#filter").val(),
                         timeout: 10000
@@ -82,7 +82,7 @@
         
         function shw(anc){
             var req=$.ajax({
-                        url: "categoryHelper.php",
+                        url: "<?php echo HOST;?>/categoryHelper.php",
                         type: "POST",
                         data: "aid="+$(anc).attr("aid"),
                         timeout: 10000
@@ -106,7 +106,7 @@
             $("#catAdd").addClass("disabled");
             $("#btn").toggleClass("glyphicon-plus-sign glyphicon-time");
             var req=$.ajax({
-                        url: "categoryAdd.php",
+                        url: "<?php echo HOST;?>/categoryAdd.php",
                         type: "POST",
                         data: "cat="+$("#cat").val(),
                         timeout: 10000
@@ -140,7 +140,7 @@
                upd.push($(this).val());
             });
             var req=$.ajax({
-                        url: "categoryAdd.php",
+                        url: "<?php echo HOST;?>/categoryAdd.php",
                         type: "POST",
                         data: "aid="+$("a.active").attr("aid")+"&updt="+upd,
                         timeout: 10000

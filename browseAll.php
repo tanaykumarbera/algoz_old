@@ -58,7 +58,7 @@ printFooter(array(
                 e="filter=category";
                 gic="bookmark";
             }
-            var t=$.ajax({url:"jHelper.php",type:"POST",data:e,timeout:10000});
+            var t=$.ajax({url:"'.HOST.'/jHelper.php",type:"POST",data:e,timeout:10000});
             t.done(function(msg){
                 if(msg!="error") json=$.parseJSON(msg);
                 else alert("Something went wrong.. Try again");

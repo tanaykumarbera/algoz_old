@@ -8,12 +8,12 @@
         <meta charset="utf-8" />
         <title><?php echo $HCargs['title'];?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-        <link href="b/css/bootstrap.min.css" rel="stylesheet" media="screen">  
+        <link href="<?php echo HOST;?>/b/css/bootstrap.min.css" rel="stylesheet" media="screen">  
         <!--[if lt IE 9]>  
-          <script src="b/assets/js/html5shiv.js"></script>  
-          <script src="b/assets/js/respond.min.js"></script>  
+          <script src="<?php echo HOST;?>/b/assets/js/html5shiv.js"></script>  
+          <script src="<?php echo HOST;?>/b/assets/js/respond.min.js"></script>  
         <![endif]-->  
-        <link href="b/css/cStyl.css" rel="stylesheet" media="screen">
+        <link href="<?php echo HOST;?>/b/css/cStyl.css" rel="stylesheet" media="screen">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'/>
         <?php
             if(!empty($HTargs)) foreach ($HTargs as $arg)   echo $arg."\n";
@@ -32,7 +32,7 @@
                             <button type="button" id="nav-btn" class="navbar-toggle btn-lg mTop10" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                                 <span id="nav-icn" class="glyphicon glyphicon-th white fS1"></span>
                             </button>
-                            <a class="navbar-brand" rel="home" href="/" title="Home"><img src="./resources/logo/logo.png"/></a>
+                            <a class="navbar-brand" rel="home" href="/" title="Home"><img src="<?php echo HOST;?>/resources/logo/logo.png"/></a>
                         </div>
 
                         <div class="collapse navbar-collapse navbar-ex1-collapse pTop10">

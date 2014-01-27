@@ -8,19 +8,19 @@
         <meta charset="utf-8" />
         <title>Home | AlgoZ.org</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-        <link href="b/css/bootstrap.min.css" rel="stylesheet" media="screen">  
+        <link href="<?php echo HOST;?>/b/css/bootstrap.min.css" rel="stylesheet" media="screen">  
         <!--[if lt IE 9]>  
-          <script src="b/assets/js/html5shiv.js"></script>  
-          <script src="b/assets/js/respond.min.js"></script>  
+          <script src="<?php echo HOST;?>/b/assets/js/html5shiv.js"></script>  
+          <script src="<?php echo HOST;?>/b/assets/js/respond.min.js"></script>  
         <![endif]-->  
-        <link href="b/css/cStyl.css" rel="stylesheet" media="screen">
+        <link href="<?php echo HOST;?>/b/css/cStyl.css" rel="stylesheet" media="screen">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'/>
     </head>
     <body>
         <div id="wrapper">
             <div class="jumbotron z0">
                 <div class="blnk50"></div>
-                <img src="./resources/img/algoz.png" class="img-responsive blockC z5" alt="AlgoZ.org | pseudo code | c | java | python" height="139" width="500"/>
+                <img src="<?php echo HOST;?>/resources/img/algoz.png" class="img-responsive blockC z5" alt="AlgoZ.org | pseudo code | c | java | python" height="139" width="500"/>
                 <div class="hSrch blockC z5">
                     <form class="form-group" role="search">
                         <div class="input-group input-group-lg">
@@ -33,9 +33,9 @@
                 </div>
             </div>
             <div class="txtC">
-                <a class="tdN" href="./browseAll.php?filter=algorithm"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Browse by name</a>&nbsp;&nbsp;
-                <a class="tdN" href="./browseAll.php?filter=tag"><span class="glyphicon glyphicon-tags"></span> Browse by tags</a>&nbsp;&nbsp;
-                <a class="tdN" href="./browseAll.php?filter=category"><span class="glyphicon glyphicon-bookmark"></span> Browse by categories</a>&nbsp;&nbsp;
+                <a class="tdN" href="<?php echo HOST;?>/browseAll.php?filter=algorithm"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Browse by name</a>&nbsp;&nbsp;
+                <a class="tdN" href="<?php echo HOST;?>/browseAll.php?filter=tag"><span class="glyphicon glyphicon-tags"></span> Browse by tags</a>&nbsp;&nbsp;
+                <a class="tdN" href="<?php echo HOST;?>/browseAll.php?filter=category"><span class="glyphicon glyphicon-bookmark"></span> Browse by categories</a>&nbsp;&nbsp;
             </div>
             <div class="blnk50"></div>
             <div class="container">

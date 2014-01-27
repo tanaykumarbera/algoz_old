@@ -31,7 +31,7 @@ if(!empty($_SESSION['uid'])&&($_SESSION['AoDnMlIyN']===1)){
                     <p>If you think this is erroneous, please leave us a <a href="mailto:support@algoz.org">mail</a>. We will look upon the matter as soon as possible.</p>
                 </div>
             <div class="blnk"></div>
-            <div><a href="/"><img class="blockC" src="./resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></a></div>
+            <div><a href="/"><img class="blockC" src="<?php echo HOST;?>/resources/logo/dl.png" alt="AlgoZ.org" height="35" width="130"/></a></div>
         </div>
     </body>
 </html>
