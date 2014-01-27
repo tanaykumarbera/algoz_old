@@ -45,18 +45,21 @@ printFooter(array(
     'fscript'=> '
          function ldList(a){
             $("#waitL").css("visibility","visible");
-            var e, json;
+            var e, json, tp;
             if(a==1){
                 e="filter=algorithm";
                 gic="th-list";
+                tp="/algo/";
             }
             else if(a==2){
                 e="filter=tag";
-                gic="tag"
+                gic="tag";
+                tp="/tag/";
             }
             else{
                 e="filter=category";
                 gic="bookmark";
+                tp="/algo/";
             }
             var t=$.ajax({url:"'.HOST.'/jHelper.php",type:"POST",data:e,timeout:10000});
             t.done(function(msg){
@@ -72,7 +75,7 @@ printFooter(array(
                         s=s+\'</div>\';
                         s=s+\'<div id="cl\'+i+\'" class="list-group panel-collapse collapse">\';
                                 for(j=0; j< json[i].list.length; j++){
-                                    s=s+\'<a class="list-group-item" href="\'+json[i].list[j].aLink+\'" target="_blank">\'+json[i].list[j].aNam+\'</a>\';
+                                    s=s+\'<a class="list-group-item" href="'.HOST.'\'+tp+json[i].list[j].aLink+\'" target="_blank">\'+json[i].list[j].aNam+\'</a>\';
                                 }
                         s=s+\'</div>\'
                     s=s+\'</div>\';
